@@ -1,0 +1,6 @@
+*/
+*.un~
+.bash_history
+.bash_logout
+.git-completion.bash
+.viminfo
