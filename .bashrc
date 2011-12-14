@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # my aliases
-alias lk='ls -AFBG --color'
+alias lk="ls -AFBG --ignore='.*.swp' --color"
 alias tmux='TERM=screen-256color tmux'
 alias ls='ls --color=auto'
 
