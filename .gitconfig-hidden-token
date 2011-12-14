@@ -1,0 +1,14 @@
+[user]
+	name = giulio
+	email = giuliop@gmail.com
+[core]
+	editor = vim
+[github]
+	user = giuliop
+	token = --hidden--
+[alias]
+	st = status
+	last = log -1 HEAD
+    tg = tag -l -n1
+    ca = commit -a -m
+    cm = commit -m

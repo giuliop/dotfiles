@@ -1,6 +1,8 @@
 */
 *.un~
+*.backup
 .bash_history
 .bash_logout
 .git-completion.bash
+.gitconfig
 .viminfo
