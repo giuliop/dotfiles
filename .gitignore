@@ -4,6 +4,8 @@
 .git-completion.bash
 .gitconfig
 .viminfo
+.gambc_history
+yankring_history_v2.txt
 
 ### Always useful ###
 #####################

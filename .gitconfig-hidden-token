@@ -12,3 +12,4 @@
     tg = tag -l -n1
     ca = commit -a -m
     cm = commit -m
+    dc = diff --cached
