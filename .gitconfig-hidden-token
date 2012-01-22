@@ -3,6 +3,7 @@
 	email = giuliop@gmail.com
 [core]
 	editor = vim
+    excludesfile = /home/gws/dev/dotfiles/.gitignore_global
 [github]
 	user = giuliop
 	token = --hidden--
