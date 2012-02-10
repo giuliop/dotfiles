@@ -3,7 +3,7 @@
 	email = giuliop@gmail.com
 [core]
 	editor = vim
-    excludesfile = /home/gws/dev/dotfiles/.gitignore_global
+	excludesfile = /home/gws/dev/dotfiles/.gitignore_global
 [github]
 	user = giuliop
 	token = --hidden--
@@ -14,3 +14,6 @@
     ca = commit -a -m
     cm = commit -m
     dc = diff --cached
+[push]
+    ;git push will only push current branch when tracking enabled
+	default = tracking
