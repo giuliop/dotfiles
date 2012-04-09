@@ -9,11 +9,10 @@
 source /etc/profile
 
 # my aliases
-alias lk='ls -AFBG --ignore='.*.swp' --color'
+alias lk="ls -AFBG --ignore='.*.swp'"
 alias ll='lk -l'
 alias l='ll'
 alias tmux='TERM=screen-256color tmux'
-alias t='tmux'
 alias ls='ls --color=auto'
 alias g='git'
 alias v='vim'
