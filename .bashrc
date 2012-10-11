@@ -15,6 +15,7 @@ alias l='ll'
 alias tmux='TERM=screen-256color tmux'
 alias ls='ls --color=auto'
 alias g='git'
+alias gs='git status'
 alias v='vim'
 
 # add colors
@@ -41,6 +42,12 @@ export PATH
 # add node modules dir to PATH
 PATH=$PATH:/usr/local/node_modules/.bin
 export PATH
+
+# turn off Ctrl + s XOFF (XON is Ctrl + q)
+stty ixany
+stty ixoff -ixon
+stty stop undef
+stty start undef
 
 # ssh-agent up and running
 SSH_ENV="$HOME/.ssh/environment"

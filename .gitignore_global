@@ -6,6 +6,7 @@
 *.un~
 *.swp
 *.backup
+*.bak
 
 # Compiled source #
 ###################
@@ -15,6 +16,7 @@
 *.exe
 *.o
 *.so
+*.pyc
 
 # OS generated files #
 ######################

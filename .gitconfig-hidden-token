@@ -8,6 +8,7 @@
 	user = giuliop
 	token = --hidden--
 [alias]
+    aa = add --all
 	st = status
 	last = log -1 HEAD
     tg = tag -l -n1
