@@ -18,6 +18,10 @@ alias g='git'
 alias gs='git status'
 alias v='vim'
 
+# vim bindings, yeah!
+set -o vi
+bind -m vi-insert '"kj": vi-movement-mode' # 'kj' mapped to ESC
+
 # add colors
 PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 
