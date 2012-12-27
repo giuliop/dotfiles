@@ -1,13 +1,17 @@
-[user]
-	name = giulio
-	email = giuliop@gmail.com
+[include]
+    # For username / creds / etc
+    path = ~/dev/dotfiles/.gitconfig_local
 [core]
-	editor = vim
-[github]
-	user = giuliop
-	token = 1170bf355b31ef3e52e10db905e25ee4
+    editor = vim
+    excludesfile = ~/dev/dotfiles/.gitignore_global
 [alias]
-	st = status
-	last = log -1 HEAD
+    aa = add --all
+    st = status
+    last = log -1 HEAD
     tg = tag -l -n1
     ca = commit -a -m
+    cm = commit -m
+    dc = diff --cached
+[push]
+    ;git push will only push current branch when tracking enabled
+    default = tracking
