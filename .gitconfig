@@ -1,6 +1,3 @@
-[include]
-    # sensitive data
-    path = ~/dev/dotfiles/.gitconfig_local
 [user]
     name = giulio
     email = giuliop@gmail.com
