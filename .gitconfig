@@ -1,9 +1,14 @@
 [include]
-    # For username / creds / etc
+    # sensitive data
     path = ~/dev/dotfiles/.gitconfig_local
+[user]
+    name = giulio
+    email = giuliop@gmail.com
 [core]
     editor = vim
     excludesfile = ~/dev/dotfiles/.gitignore_global
+[github]
+    user = giuliop
 [alias]
     aa = add --all
     st = status
