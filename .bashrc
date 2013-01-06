@@ -69,6 +69,9 @@ bind -m vi-insert '"kj": vi-movement-mode' # 'kj' mapped to ESC
 HISTFILESIZE=10000
 HISTSIZE=1000
 
+# immediately add command to history
+export PROMPT_COMMAND="history -a;"
+
 # add colors
 PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 
