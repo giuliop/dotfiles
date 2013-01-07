@@ -1,0 +1,107 @@
+*** bash ***
+
+    login as different user in same terminal
+        su - username
+
+    match previous command
+        type ctrl-r then type partial match
+        type history then !n where n is the command no
+
+    go to previous directory
+        cd -
+
+    find <filename> in current dir or subdirs
+        find . -name filename
+
+    copy file from local computer to linode directory
+        scp file root@178.79.141.51:directory
+
+    copy file from linode to local computer
+        scp gws@178.79.141.51:from_file to_file
+
+    paste text into file (deleting old content) / append text to end of file
+        echo 'text' > filename / echo 'text' >> filename
+
+    bash history statistics
+        cut -f1 -d" " .bash_history | sort | uniq -c | sort -nr | head -n 30
+
+    ssh tunnel for firefox
+        ssh -C2qTnN -D 8080 gws@178.79.141.51
+
+    ls in reverse order
+        ls -tr
+
+
+*** tmux ***
+
+    rename window
+        , <new name>
+
+    change window number to num
+        :move-window -t num
+
+    move pane to/from another window
+        :join-pane -t <target window number>
+        :join-pane -s <source window number>
+
+    show pane number -> q
+    rotate pane layout -> space
+
+
+*** vim ***
+
+    any word completion
+        ctrl-N , ctrl-P
+
+    omnicomplete
+        ctrl-X + ctrl-O
+
+    save file when forgot to sudo
+        :w !sudo tee %
+
+    yank copied text from register 0 (default)
+        "0p (normal mode) / ctrl-r 0 (insert mode)
+
+    copy from clipboard if there are extra blanks
+        :set paste (before copying and afterwards :set nopaste )
+
+    go until char 'a' (stop before) / (stop on it)
+        ta / fa    |     T and F for backward
+    
+    move to next (previous) word like the one under cursor
+    * / #
+
+    delete until you find 'word'
+        d/word (forward) |  d?word (backward)
+
+    use YankRing
+        after pasting, C-n and C-p to move through items in the ring
+        :YRShow to open ring buffer
+
+    delete trailing whitespaces (all lines)
+        :%s/\s\+$//
+
+    alternatives to ESC / backspace / enter
+        ctrl-[ / ctrl-h / ctrl-j
+
+    yank in insert mode
+        ctrl-r " (remapped to ctrl-y)
+
+
+*** git ***
+
+    see changes before committing
+       git diff --cached
+
+    update last commit with all changes
+        git commit --all --amend
+
+    merge issues
+        git mergetool
+
+    untrack a file without deleting it (e.g. if added to .gitignore)
+        git rm --cached filename
+
+    git add remote and push enabling tracking
+        git remote add origin ssh://git@bitbucket.org/gws/xxx.git
+        git push --set-upstream origin master
