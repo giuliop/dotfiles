@@ -108,7 +108,7 @@ stty stop undef
 stty start undef
 
 # ssh-agent up and running on Linux
-if [[ $os == 'Linux;' ]]; then
+if [[ $os == 'Linux' ]]; then
     SSH_ENV="$HOME/.ssh/environment"
 
     function start_agent {
