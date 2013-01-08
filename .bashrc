@@ -20,28 +20,35 @@ else
     # no more need to type cd
     shopt -s globstar autocd
 
-    # add node modules dir to PATH
-    PATH=$PATH:/usr/local/node_modules/.bin
-    export PATH
+    # check the window size after each command and, if necessary,
+    # update the values of LINES and COLUMNS.
+    shopt -s checkwinsize
+
+    # enable programmable completion features (you don't need to enable
+    # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+    # sources /etc/bash.bashrc).
+    if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+        . /etc/bash_completion
+    fi
 fi
 
 # virtualenv stuff
-export WORKON_HOME=$HOME/.virtualenvs
 if [[ $os == 'Mac' ]]; then
+    export WORKON_HOME=$HOME/.virtualenvs
     source /usr/local/share/python/virtualenvwrapper.sh
-else
-    source /usr/bin/virtualenvwrapper.sh
+#else
+    #export WORKON_HOME=$HOME/.virtualenvs
+    #source /usr/bin/virtualenvwrapper.sh
 fi
 
 # make autojump work
 if [[ $os == 'Mac' ]]; then
     [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 else
-    source /etc/profile
+    . /usr/share/autojump/autojump.sh
 fi
 
 # my aliases
-export gwslinode=gws@178.79.141.51
 if [[ $os == 'Mac' ]]; then
     alias ggmongod='mongod run --config /usr/local/Cellar/mongodb/2.0.4-x86_64/mongod.conf'
     alias vim='mvim -v'
@@ -54,6 +61,9 @@ else
 fi
 alias ll='lk -l'
 alias l='ll'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 alias tmux='TERM=screen-256color tmux'
 alias g='git'
 alias gs='git status'
@@ -66,17 +76,26 @@ set -o vi
 bind -m vi-insert '"kj": vi-movement-mode' # 'kj' mapped to ESC
 
 # longer history
-HISTFILESIZE=10000
+HISTFILESIZE=10001
 HISTSIZE=1000
 
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
 # immediately add command to history
-export PROMPT_COMMAND="history -a;"
+export PROMPT_COMMAND="history -a;"$PROMPT_COMMAND
 
 # add colors
 PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 
 # git stuff
-source ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
 
 # add my script dir to PATH
 PATH=$PATH:$HOME/dev/scripts/
