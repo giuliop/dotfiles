@@ -3,3 +3,7 @@ if [ -f ~/.bashrc ]; then
 else
     echo 'No bashrc found'
 fi
+
+if [ -f ~/dev/dotfiles/bash-prompt-git-status ]; then
+    source ~/dev/dotfiles/bash-prompt-git-status
+fi
