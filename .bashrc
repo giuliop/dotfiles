@@ -59,6 +59,8 @@ else
     alias lk="ls -AFBG --ignore='.*.swp'"
     alias v='vim'
 fi
+alias sudo="sudo "
+alias s='eval "sudo $(fc -ln -1)"'
 alias ll='lk -l'
 alias l='ll'
 alias grep='grep --color=auto'
