@@ -17,3 +17,10 @@
 [push]
     ;git push will only push current branch when tracking enabled
     default = tracking
+[merge]
+    tool = p4merge
+[mergetool "p4merge"]
+    cmd = p4merge $BASE $LOCAL $REMOTE $MERGED
+    trustExitCode = false
+    keepBackup = false
+    prompt = false
