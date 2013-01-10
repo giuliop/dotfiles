@@ -100,7 +100,7 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 # add my script dir to PATH
-PATH=$PATH:$HOME/dev/scripts/
+PATH=$PATH:$HOME/dev/scripts
 export PATH
 
 # turn off Ctrl + s XOFF (XON is Ctrl + q)
