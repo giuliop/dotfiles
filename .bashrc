@@ -101,6 +101,8 @@ fi
 
 # add my script dir to PATH
 PATH=$PATH:$HOME/dev/scripts/
+# add golang bin to PATH
+PATH=$PATH:/usr/local/go/bin
 export PATH
 
 # turn off Ctrl + s XOFF (XON is Ctrl + q)
