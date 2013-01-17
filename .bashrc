@@ -104,7 +104,8 @@ PATH=$PATH:$HOME/dev/scripts
 
 # add golang bin(s) to PATH
 if [[ $os == 'Mac' ]]; then
-    # ****** add proper PATH **** PATH=$PATH:/usr/lib/go/bin
+    # ****** add proper PATH ****
+    PATH=$PATH:/usr/lib/go/bin
 else
     PATH=$PATH:/usr/lib/go/bin
 fi
