@@ -101,9 +101,18 @@ fi
 
 # add my script dir to PATH
 PATH=$PATH:$HOME/dev/scripts
-# add golang bin to PATH
-PATH=$PATH:/usr/local/go/bin
+
+# add golang bin(s) to PATH
+if [[ $os == 'Mac' ]]; then
+    # ****** add proper PATH **** PATH=$PATH:/usr/lib/go/bin
+else
+    PATH=$PATH:/usr/lib/go/bin
+fi
+
+PATH=$PATH:$HOME/dev/go/bin
+
 export PATH
+export GOPATH=$HOME/dev/go
 
 # turn off Ctrl + s XOFF (XON is Ctrl + q)
 stty ixany
