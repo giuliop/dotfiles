@@ -5,11 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Add git info in status bar
-if [ -f ~/dev/dotfiles/bash-prompt-git-status ]; then
-    source ~/dev/dotfiles/bash-prompt-git-status
-fi
-
 # Linux stuff
 if [[ $os == 'Linux' ]]; then
     # no more need to type cd
@@ -70,10 +65,14 @@ export PROMPT_COMMAND="history -a;"$PROMPT_COMMAND
 PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 
 # git stuff
-if [ -f ~/.git-completion.bash ]; then
+if [[ -f ~/.git-completion.bash ]]; then
     . ~/.git-completion.bash
 fi
 
+# Add git info in status bar
+if [[ -f ~/dev/dotfiles/bash-prompt-git-status ]]; then
+    . ~/dev/dotfiles/bash-prompt-git-status
+fi
 
 # turn off Ctrl + s XOFF (XON is Ctrl + q)
 stty ixany
