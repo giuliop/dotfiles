@@ -2,10 +2,28 @@
 # ~/.bashrc
 #
 
+echo ''
+echo '*** reading bashrc ***'
+echo ''
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Linux stuff
+# Detect os
+os=$(uname)
+if [[ $os == 'Darwin' ]]; then
+    os='Mac'
+fi
+
+# add colors
+PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
+
+# Add git info in status bar
+if [[ -f ~/dev/dotfiles/bash-prompt-git-status ]]; then
+    . ~/dev/dotfiles/bash-prompt-git-status
+fi
+
+# Set autocd on Linux
 if [[ $os == 'Linux' ]]; then
     # no more need to type cd
     shopt -s globstar autocd
@@ -29,6 +47,7 @@ else
     alias lk="ls -AFBG --ignore='.*.swp'"
     alias v='vim'
 fi
+
 alias sudo="sudo "
 alias s='eval "sudo $(fc -ln -1)"'
 alias ll='lk -l'
@@ -61,17 +80,9 @@ shopt -s histappend
 # immediately add command to history
 export PROMPT_COMMAND="history -a;"$PROMPT_COMMAND
 
-# add colors
-PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
-
 # git stuff
 if [[ -f ~/.git-completion.bash ]]; then
     . ~/.git-completion.bash
-fi
-
-# Add git info in status bar
-if [[ -f ~/dev/dotfiles/bash-prompt-git-status ]]; then
-    . ~/dev/dotfiles/bash-prompt-git-status
 fi
 
 # turn off Ctrl + s XOFF (XON is Ctrl + q)
@@ -105,3 +116,4 @@ if [[ $os == 'Linux' ]]; then
 
     fi
 fi
+

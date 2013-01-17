@@ -2,6 +2,10 @@
 # ~/.bash_profile
 #
 
+echo ''
+echo '*** reading bash_profile ***'
+echo ''
+
 # Detect os
 os=$(uname)
 if [[ $os == 'Darwin' ]]; then
@@ -40,7 +44,7 @@ export PATH
 export GOPATH=$HOME/dev/go
 
 
-# Source bashrc
+# Source bashr
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 else
