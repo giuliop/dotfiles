@@ -10,9 +10,6 @@ fi
 
 # Set environment variables
 
-# add my script dir to PATH
-PATH=$PATH:$HOME/dev/scripts
-
 #Mac vs Linux stuff
 if [[ $os == 'Mac' ]]; then
     # homebrew stuff
@@ -34,12 +31,16 @@ else
     PATH=$PATH:/usr/lib/go/bin
 fi
 
+# add my script dir to PATH
+PATH=$PATH:$HOME/dev/scripts
+# add my golang bin dir
 PATH=$PATH:$HOME/dev/go/bin
+
 export PATH
 export GOPATH=$HOME/dev/go
 
 
-# Source bashr
+# Source bashrc
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 else
