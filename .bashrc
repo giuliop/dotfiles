@@ -5,18 +5,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Detect os
-os=$(uname)
-if [[ $os == 'Darwin' ]]; then
-    os='Mac'
+# Add git info in status bar
+if [ -f ~/dev/dotfiles/bash-prompt-git-status ]; then
+    source ~/dev/dotfiles/bash-prompt-git-status
 fi
 
-# Mac vs Linux stuff
-if [[ $os == 'Mac' ]]; then
-    # homebrew stuff
-    export PATH=/usr/local/bin:$PATH
-    export PATH=/usr/local/share/python:$PATH
-else
+# Linux stuff
+if [[ $os == 'Linux' ]]; then
     # no more need to type cd
     shopt -s globstar autocd
 
@@ -30,15 +25,6 @@ else
     if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
         . /etc/bash_completion
     fi
-fi
-
-# virtualenv stuff
-if [[ $os == 'Mac' ]]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    source /usr/local/share/python/virtualenvwrapper.sh
-#else
-    #export WORKON_HOME=$HOME/.virtualenvs
-    #source /usr/bin/virtualenvwrapper.sh
 fi
 
 # make autojump work
@@ -99,21 +85,6 @@ if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
 fi
 
-# add my script dir to PATH
-PATH=$PATH:$HOME/dev/scripts
-
-# add golang bin(s) to PATH
-if [[ $os == 'Mac' ]]; then
-    # ****** add proper PATH ****
-    PATH=$PATH:/usr/lib/go/bin
-else
-    PATH=$PATH:/usr/lib/go/bin
-fi
-
-PATH=$PATH:$HOME/dev/go/bin
-
-export PATH
-export GOPATH=$HOME/dev/go
 
 # turn off Ctrl + s XOFF (XON is Ctrl + q)
 stty ixany
