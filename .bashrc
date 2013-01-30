@@ -16,7 +16,7 @@ if [[ $os == 'Darwin' ]]; then
 fi
 
 # add colors
-PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
+PS1='\[\e[0;36m\][\u@\h \W]\$\[\e[0m\] '
 
 # Add git info in status bar
 if [[ -f ~/dev/dotfiles/bash-prompt-git-status ]]; then
