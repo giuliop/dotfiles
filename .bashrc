@@ -29,6 +29,11 @@ if [[ $os == 'Linux' ]]; then
     shopt -s globstar autocd
 fi
 
+# Source bash_completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
 # make autojump work
 if [[ $os == 'Mac' ]]; then
     [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
