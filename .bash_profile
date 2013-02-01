@@ -2,9 +2,7 @@
 # ~/.bash_profile
 #
 
-echo ''
-echo '*** reading bash_profile ***'
-echo ''
+#echo '*** reading bash_profile ***'
 
 # Detect os
 os=$(uname)
