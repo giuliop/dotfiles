@@ -8,12 +8,14 @@
     user = giuliop
 [alias]
     aa = add --all
-    st = status
-    last = log -1 HEAD
-    tg = tag -l -n1
     ca = commit -a -m
     cm = commit -m
     dc = diff --cached
+    last = log -1 HEAD
+    ps = push
+    pl = pull
+    st = status
+    tg = tag -l -n1
 [push]
     ;git push will only push current branch when tracking enabled
     default = tracking
