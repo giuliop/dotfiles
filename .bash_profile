@@ -24,7 +24,6 @@ if [[ $os == 'Mac' ]]; then
     # virtualenv stuff
     export WORKON_HOME=$HOME/.virtualenvs
     source /usr/local/share/python/virtualenvwrapper.sh
-
 else
     # virtualenv stuff
     #export WORKON_HOME=$HOME/.virtualenvs
@@ -32,6 +31,9 @@ else
 
     # add golang system bin to PATH
     PATH=$PATH:/usr/lib/go/bin
+
+    # add gae-go dir to PATH
+    PATH=$PATH:~/dev/gae-go/google_appengine
 fi
 
 # add my script dir to PATH
