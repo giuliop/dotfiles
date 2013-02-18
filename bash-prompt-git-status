@@ -3,9 +3,19 @@
 git_prompt() {
     git_status_output=$(git status 2> /dev/null) || return
 
-    branch_name() {
+    branch_name_helper() {
         sed -n 's/# On branch //p' <<< "$git_status_output"
     }
+
+    branch_name() {
+        local name="$(branch_name_helper)"
+        if name="Master"
+        then
+            name="M"
+        fi
+       echo "$name"
+   }
+
 
     number_of_commits() {
         local branch_prefix='# Your branch is '
