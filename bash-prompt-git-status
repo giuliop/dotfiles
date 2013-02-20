@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git_prompt() {
+function git_prompt() {
     git_status_output=$(git status 2> /dev/null) || return
 
     branch_name_helper() {
@@ -9,12 +9,11 @@ git_prompt() {
 
     branch_name() {
         local name="$(branch_name_helper)"
-        if name="Master"
-        then
+        if [[ "$name" = "master" ]]; then
             name="M"
         fi
-       echo "$name"
-   }
+        echo "$name"
+    }
 
 
     number_of_commits() {
@@ -51,8 +50,8 @@ git_prompt() {
         eval printf '%.0s-' {1..$1}
     }
 
-    local bold="\033[1m"
-    local no_colour="\033[0m"
+    local bold='\[\e[1m\]'
+    local no_colour='\[\e[0m\]'
 
     ahead_arrow() {
         if commits_ahead=$(number_of_commits "ahead")
@@ -69,10 +68,10 @@ git_prompt() {
     }
 
     branch_part() {
-        local red="\033[31m"
-        local green="\033[32m"
-        local yellow="\033[33m"
-        local branch_colour=""
+        local red='\[\e[31m\]'
+        local green='\[\e[32m\]'
+        local yellow='\[\e[33m\]'
+        local branch_colour=''
 
         if untracked_files
         then
@@ -100,4 +99,8 @@ git_prompt() {
     echo -e "$prompt "
 }
 
-export PS1="\$(git_prompt)"$PS1
+#function _prompt() {
+    #PS1="`git_prompt`"$PS1
+#}
+
+#PROMPT_COMMAND=_prompt

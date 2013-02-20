@@ -13,12 +13,19 @@ if [[ $os == 'Darwin' ]]; then
     os='Mac'
 fi
 
-# add colors
-PS1='[\u@\h] \e[0;36m\W \$ \e[0m'
+# prepare prompt
+niceprompt='[\u@\h] \[\e[0;36m\]\W \$ \[\e[0m\]'
 
-# Add git info in status bar
+function _prompt() {
+    PS1="\n`git_prompt`"$niceprompt
+}
+
+# Add git info in status bar if available
 if [[ -f ~/dev/dotfiles/bash-prompt-git-status ]]; then
     . ~/dev/dotfiles/bash-prompt-git-status
+    PROMPT_COMMAND=_prompt
+else
+    PS1="\n$niceprompt"
 fi
 
 # Set autocd on Linux
