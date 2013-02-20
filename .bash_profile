@@ -42,7 +42,7 @@ PATH=$PATH:$HOME/dev/scripts
 PATH=$PATH:$HOME/dev/go/bin
 
 export PATH
-export GOPATH=$HOME/dev/go
+export GOPATH=$HOME/dev/go/ext:$HOME/dev/go/mygo
 
 
 # Source bashr
