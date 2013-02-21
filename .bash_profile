@@ -39,7 +39,7 @@ fi
 # add my script dir to PATH
 PATH=$PATH:$HOME/dev/scripts
 # add my golang bin dir
-PATH=$PATH:$HOME/dev/go/bin
+PATH=$PATH:$HOME/dev/go/ext/bin:$HOME/dev/go/mygo/bin
 
 export PATH
 export GOPATH=$HOME/dev/go/ext:$HOME/dev/go/mygo
