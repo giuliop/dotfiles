@@ -54,7 +54,7 @@ if [[ $os == 'Mac' ]]; then
     alias lk='ls -AFBG'
 else
     alias ls='ls --color=auto'
-    alias lk="ls -AFBG --ignore='.*.swp'"
+    alias lk="ls -AFBG --group-directories-first --ignore='.*.swp'"
     alias v='vim'
 fi
 
