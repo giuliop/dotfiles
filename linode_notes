@@ -1,3 +1,5 @@
+only a few port are open by setting up a firewall as described in http://library.linode.com/securing-your-server
+
 Port 80 is forwarded to port 8080 to run giuliopizzini.com on python simple server without sudo (as per http://serverfault.com/questions/112795/how-can-i-run-a-server-on-linux-on-port-80-as-a-normal-user)
 
 Forwarded done by command:
@@ -14,3 +16,5 @@ To delete forwarding:
 $ sudo iptables -t nat --line-numbers -n -L
 $ sudo iptables -t nat -D PREROUTING <line number>  (where line number comes from above)
 $ sudo iptables -t nat -D OUTPUT <line number>      (where line number comes from above)
+
+iptables rules above are made reloaded on reboot as per http://stackoverflow.com/questions/9330694/how-to-permanently-update-iptables
