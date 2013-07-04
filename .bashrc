@@ -57,6 +57,7 @@ else
     alias lk="ls -AFBG --group-directories-first --ignore='.*.swp'"
     alias v='vim'
 fi
+alias md='mkdir'
 
 alias sudo="sudo "
 alias s='eval "sudo $(fc -ln -1)"'
@@ -127,3 +128,6 @@ if [[ $os == 'Linux' ]]; then
     fi
 fi
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
