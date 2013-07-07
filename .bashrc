@@ -58,7 +58,6 @@ else
     alias v='vim'
 fi
 alias md='mkdir'
-
 alias sudo="sudo "
 alias s='eval "sudo $(fc -ln -1)"'
 alias ll='lk -l'
