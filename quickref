@@ -47,6 +47,8 @@
     show pane number -> q
     rotate pane layout -> space
 
+    enter copy mode
+        ctrl-b [ (then vim movement keys)
 
 *** vim ***
 
