@@ -67,7 +67,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias tmux='TERM=screen-256color tmux'
 alias g='git'
-alias gs='git status'
+alias gg='git status'
 alias t='tmux'
 alias h='history -n'
 # last one to force re-read of bash history
