@@ -72,6 +72,10 @@ alias t='tmux'
 alias h='history -n'
 # last one to force re-read of bash history
 
+# bash completion for g as git
+complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
+        || complete -o default -o nospace -F _git g
+
 # vim bindings, yeah!
 set -o vi
 bind -m vi-insert '"kj": vi-movement-mode' # 'kj' mapped to ESC
