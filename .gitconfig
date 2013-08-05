@@ -13,6 +13,7 @@
     cm = commit -m
     dc = diff --cached
     last = log -1 HEAD
+    mg = merge
     ps = push
     pl = pull
     st = status
