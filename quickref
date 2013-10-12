@@ -48,7 +48,7 @@
     rotate pane layout -> space
 
     enter copy mode
-        ctrl-b [ (then vim movement keys)
+        ctrl-b [ (then vim movement keys ; q to exit)
 
 *** vim ***
 
