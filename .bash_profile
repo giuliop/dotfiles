@@ -33,7 +33,7 @@ else
     PATH=$PATH:/usr/lib/go/bin
 
     # add gae-go dir to PATH
-    PATH=$PATH:~/dev/gae-go/google_appengine
+    PATH=$PATH:~/dev/gae-go/go_appengine
 fi
 
 # add my script dir to PATH
