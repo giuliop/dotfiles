@@ -16,14 +16,10 @@ fi
 if [[ $os == 'Mac' ]]; then
     # homebrew stuff
     PATH=/usr/local/bin:$PATH
-    PATH=/usr/local/share/python:$PATH
 
     # add golang system bin to PATH
     PATH=$PATH:/usr/local/Cellar/go/1.0.3/bin
 
-    # virtualenv stuff
-    export WORKON_HOME=$HOME/.virtualenvs
-    source /usr/local/share/python/virtualenvwrapper.sh
 else
     # virtualenv stuff
     #export WORKON_HOME=$HOME/.virtualenvs
