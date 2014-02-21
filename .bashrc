@@ -48,15 +48,12 @@ fi
 
 # my aliases
 if [[ $os == 'Mac' ]]; then
-    alias ggmongod='mongod run --config /usr/local/Cellar/mongodb/2.0.4-x86_64/mongod.conf'
-    alias vim='mvim -v'
-    alias v='mvim -v'
     alias lk='ls -AFBG'
 else
     alias ls='ls --color=auto'
     alias lk="ls -AFBG --group-directories-first --ignore='.*.swp'"
-    alias v='vim'
 fi
+alias v='vim'
 alias md='mkdir'
 alias sudo="sudo "
 alias s='eval "sudo $(fc -ln -1)"'
@@ -133,4 +130,4 @@ fi
 
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="/usr/local/heroku/bin:$PATH"
