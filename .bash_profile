@@ -17,8 +17,11 @@ if [[ $os == 'Mac' ]]; then
     # homebrew stuff
     PATH=/usr/local/bin:$PATH
 
+    # haskell
+    PATH=~/.cabal/bin:$PATH
+
     # add golang system bin to PATH
-    #PATH=$PATH:/usr/local/Cellar/go/1.0.3/bin
+    PATH=$PATH:/usr/local/Cellar/go/1.2.1/libexec/bin
 else
 
     # add golang system bin to PATH
