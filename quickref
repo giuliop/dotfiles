@@ -107,3 +107,9 @@
     git add remote and push enabling tracking
         git remote add origin ssh://git@bitbucket.org/gws/xxx.git
         git push --set-upstream origin master
+
+
+*** golang ***
+
+    build without optmization to enable gdb debugging
+        go build -gcflags '-N'
