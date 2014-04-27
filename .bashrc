@@ -35,8 +35,14 @@ if [[ $os == 'Linux' ]]; then
 fi
 
 # Source bash_completion
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+if [[ $os == 'Mac' ]]; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
+else
+    if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+        . /etc/bash_completion
+    fi
 fi
 
 # make autojump work
@@ -92,9 +98,9 @@ shopt -s histappend
 export PROMPT_COMMAND="history -a;"$PROMPT_COMMAND
 
 # git stuff
-if [[ -f ~/.git-completion.bash ]]; then
-    . ~/.git-completion.bash
-fi
+#if [[ -f ~/.git-completion.bash ]]; then
+    #. ~/.git-completion.bash
+#fi
 
 # turn off Ctrl + s XOFF (XON is Ctrl + q)
 stty ixany

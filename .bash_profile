@@ -17,11 +17,6 @@ if [[ $os == 'Mac' ]]; then
     # homebrew stuff
     PATH=/usr/local/bin:$PATH
 
-    #bash completion
-      if [ -f $(brew --prefix)/etc/bash_completion ]; then
-          . $(brew --prefix)/etc/bash_completion
-      fi
-
     # haskell
     PATH=~/.cabal/bin:$PATH
 
