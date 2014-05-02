@@ -1,12 +1,28 @@
 #!/bin/bash
 
 function git_prompt() {
-    git_status_output=$(git status 2> /dev/null) || return
+    # '2> /dev/null' color_untrackedirect sterr to null to avoid displaying error messages
+    # when we are not in a git directory. In this case the '|| return' exits
+    # immediately as we get nothing from git status
+    git_status=$(git status 2> /dev/null) || return
 
+    #configure colors
+    local color_clean='\[\e[32m\]'
+    local color_changes='\[\e[33m\]'
+    local color_untracked='\[\e[31m\]'
+    local end_color='\[\e[0m\]'
+
+    # get the name of the branch
     branch_name_helper() {
-        sed -n 's/# On branch //p' <<< "$git_status_output"
+        if [[ "$git_status" =~ On\ branch\ ([[:alnum:]]+) ]]; then
+            branch=${BASH_REMATCH[1]}
+        else
+            branch="<Error>"
+        fi
+        echo "$branch"
     }
 
+    # If the branch is 'Master' abbreviate to 'M'
     branch_name() {
         local name="$(branch_name_helper)"
         if [[ "$name" = "master" ]]; then
@@ -15,11 +31,25 @@ function git_prompt() {
         echo "$name"
     }
 
+    working_dir_clean() {
+        [[ "$git_status" =~  "working directory clean" ]]
+    }
 
+    local_changes() {
+        local added='Changes to be committed'
+        local not_added='Changes not staged for commit'
+        [[ "$git_status" =~ ($added|$not_added) ]]
+    }
+
+    untracked_files() {
+        [[ "$git_status" =~  "Untracked files" ]]
+    }
+
+    # Get how many commits are we ahead or behind
     number_of_commits() {
-        local branch_prefix='# Your branch is '
+        local branch_prefix='Your branch is '
         local branch_suffix='by [[:digit:]]+'
-        if [[ "$git_status_output" =~ ${branch_prefix}"$1".*${branch_suffix} ]]
+        if [[ "$git_status" =~ ${branch_prefix}"$1".*${branch_suffix} ]]
         then
             echo ${BASH_REMATCH[0]//[^0-9]/}
         else
@@ -27,80 +57,52 @@ function git_prompt() {
         fi
     }
 
-    match_against_status() {
-        local pattern="$1"
-        [[ "$git_status_output" =~ ${pattern} ]]
-    }
-
-    working_dir_clean() {
-        match_against_status '(working directory clean)'
-    }
-
-    local_changes() {
-        local added='# Changes to be committed'
-        local not_added='# Changes not staged for commit'
-        match_against_status "($added|$not_added)"
-    }
-
-    untracked_files() {
-        match_against_status '# Untracked files'
-    }
-
+    # return a dashline with how many dash as its argument
     dashline() {
         eval printf '%.0s-' {1..$1}
     }
 
-    local bold='\[\e[1m\]'
-    local no_colour='\[\e[0m\]'
-
-    ahead_arrow() {
-        if commits_ahead=$(number_of_commits "ahead")
-        then
-            echo -e "$bold$(dashline $commits_ahead)$no_colour> $commits_ahead ahead"
+    # return '|--> n' or 'n <--|' (as many '-' as 'n' that is commits ahead/behind)
+    commits_part() {
+        if commits_ahead=$(number_of_commits "ahead"); then
+            echo "|$(dashline $commits_ahead)> $commits_ahead ahead"
+        elif commits_behind=$(number_of_commits "behind"); then
+            echo "$commits_behind behind <$(dashline $commits_behind)|"
         fi
     }
 
-    behind_arrow() {
-        if commits_behind=$(number_of_commits "behind")
-        then
-            echo "$commits_behind behind <$bold$(dashline $commits_behind)$no_colour"
+    branch_part_color() {
+        local color=''
+        if untracked_files; then
+            color=$color_untracked
+        elif local_changes; then
+            color=$color_changes
+        elif working_dir_clean; then
+            color=$color_clean
         fi
+        echo "$color"
     }
 
-    branch_part() {
-        local red='\[\e[31m\]'
-        local green='\[\e[32m\]'
-        local yellow='\[\e[33m\]'
-        local branch_colour=''
-
-        if untracked_files
-        then
-            branch_colour=$red
-        elif local_changes
-        then
-            branch_colour=$yellow
-        elif working_dir_clean
-        then
-            branch_colour=$green
-        fi
-        echo "$branch_colour$(branch_name)$no_colour"
+    commits_part_color() {
+        # use same color as branch part for commits part
+        echo "$(branch_part_color)"
     }
 
-    local behind_part=$(behind_arrow)
-    local ahead_part=$(ahead_arrow)
+    local commits_part=$(commits_part)
+    local branch_part="$(branch_part_color)$(branch_name)$end_color"
 
-    if [[ ! "$behind_part" && ! "$ahead_part" ]]
-    then
-        prompt="$(branch_part)"
+    if [[ ! $commits_part ]]; then
+        prompt="$branch_part"
     else
-        prompt="$behind_part|$ahead_part\n$(branch_part)"
+        prompt="$(commits_part_color)$commits_part$end_color\n$branch_part"
     fi
 
+    # '-e' option enable interpretation of escape sequences
     echo -e "$prompt "
 }
 
 #function _prompt() {
-    #PS1="`git_prompt`"$PS1
+#PS1="`git_prompt`"$PS1
 #}
 
 #PROMPT_COMMAND=_prompt
