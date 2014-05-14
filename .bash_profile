@@ -17,9 +17,6 @@ if [[ $os == 'Mac' ]]; then
     # homebrew stuff
     PATH=/usr/local/bin:$PATH
 
-    # haskell
-    PATH=~/.cabal/bin:$PATH
-
     # add golang system bin to PATH
     PATH=$PATH:/usr/local/Cellar/go/1.2.1/libexec/bin
 else
@@ -30,6 +27,9 @@ else
     # add gae-go dir to PATH
     PATH=$PATH:~/dev/gae-go/go_appengine
 fi
+
+# add haskell executables to path
+PATH=~/.cabal/bin:$PATH
 
 # add my script dir to PATH
 PATH=$PATH:$HOME/dev/scripts
