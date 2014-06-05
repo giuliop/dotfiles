@@ -1,15 +1,11 @@
-only a few port are open by setting up a firewall as described in http://library.linode.com/securing-your-server
+Only a few port are open by setting up a firewall as described in http://library.linode.com/securing-your-server
 
-Port 80 is forwarded to port 8080 to run giuliopizzini.com on python simple server without sudo (as per http://serverfault.com/questions/112795/how-can-i-run-a-server-on-linux-on-port-80-as-a-normal-user)
+Port 80 is forwarded to port 8080 to use webservers without sudo (as per http://serverfault.com/questions/112795/how-can-i-run-a-server-on-linux-on-port-80-as-a-normal-user)
 
 Forwarded done by command:
 
 $ sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
 $ sudo iptables -t nat -A OUTPUT -d giuliopizzini.com -p tcp --dport 80 -j REDIRECT --to-port 8080
-
-python server runs with:
-
-$ python -m SimpleHTTPServer 8080
 
 To delete forwarding:
 
@@ -18,3 +14,5 @@ $ sudo iptables -t nat -D PREROUTING <line number>  (where line number comes fro
 $ sudo iptables -t nat -D OUTPUT <line number>      (where line number comes from above)
 
 iptables rules above are made reloaded on reboot as per http://stackoverflow.com/questions/9330694/how-to-permanently-update-iptables
+
+sslh is used to accept SSH traffic over port 443 (https) and redirect https traffic to port 8443 to listen to it without sudo (see rc.local.copy which is a manula copy of the startup file /etc/rc.local
