@@ -23,6 +23,7 @@ else
 
     # add golang system bin to PATH
     PATH=$PATH:/usr/lib/go/bin
+    export GOROOT=/usr/lib/go
 
     # add gae-go dir to PATH
     PATH=$PATH:~/dev/gae-go/go_appengine
