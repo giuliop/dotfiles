@@ -31,6 +31,9 @@
     ls in reverse order
         ls -tr
 
+    show mounted devices
+        df
+
 
 *** tmux ***
 
