@@ -97,11 +97,6 @@ shopt -s histappend
 # immediately add command to history
 export PROMPT_COMMAND="history -a;"$PROMPT_COMMAND
 
-# git stuff
-#if [[ -f ~/.git-completion.bash ]]; then
-    #. ~/.git-completion.bash
-#fi
-
 # turn off Ctrl + s XOFF (XON is Ctrl + q)
 stty ixany
 stty ixoff -ixon
