@@ -76,10 +76,10 @@ alias h='history -n'
 # last one to force re-read of bash history
 
 # bash completion for g as git
-source /usr/share/bash-completion/completions/git
+if [ -f /usr/share/bash-completion/completions/git ]; then
+    source /usr/share/bash-completion/completions/git
+fi
 complete -o default -o nospace -F _git g
-#complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
-        #|| complete -o default -o nospace -F _git g
 
 # vim bindings, yeah!
 set -o vi
