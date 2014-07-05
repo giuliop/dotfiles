@@ -84,7 +84,8 @@ complete -o default -o nospace -F _git g
 
 # vim bindings, yeah!
 set -o vi
-bind -m vi-insert '"kj": vi-movement-mode' # 'kj' mapped to ESC
+# but need this to keep ESC . work normally and give you the last argument in bash
+bind -m vi-command ".":insert-last-argument
 
 # longer history
 HISTFILESIZE=10001
