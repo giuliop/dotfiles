@@ -20,12 +20,8 @@ if [[ $os == 'Mac' ]]; then
     # add golang system bin to PATH
     PATH=$PATH:/usr/local/Cellar/go/1.2.1/libexec/bin
 else
-
     # add golang system bin to PATH
     PATH=$PATH:/usr/local/go/bin
-
-    # add gae-go dir to PATH
-    PATH=$PATH:~/dev/gae-go/go_appengine
 fi
 
 # add haskell executables to path
