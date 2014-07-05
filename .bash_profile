@@ -18,7 +18,7 @@ if [[ $os == 'Mac' ]]; then
     PATH=/usr/local/bin:$PATH
 
     # add golang system bin to PATH
-    PATH=$PATH:/usr/local/Cellar/go/1.2.1/libexec/bin
+    PATH=$PATH:/usr/local/opt/go/libexec/bin
 else
     # add golang system bin to PATH
     PATH=$PATH:/usr/local/go/bin
