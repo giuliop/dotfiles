@@ -54,17 +54,15 @@ fi
 
 # my aliases
 if [[ $os == 'Mac' ]]; then
-    alias lk='ls -AFBG'
+    alias l='ls -AFBGl'
 else
     alias ls='ls --color=auto'
-    alias lk="ls -AFBG --group-directories-first --ignore='.*.swp'"
+    alias l="ls -AFBl --group-directories-first --ignore='.*.swp'"
 fi
 alias v='vim'
-alias md='mkdir'
+alias md='mkdir -p'
 alias sudo="sudo "
 alias s='eval "sudo $(fc -ln -1)"'
-alias ll='lk -l'
-alias l='ll'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
