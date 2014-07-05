@@ -55,21 +55,24 @@ fi
 # my aliases
 if [[ $os == 'Mac' ]]; then
     alias l='ls -AFBGl'
+    alias del='trash'
 else
     alias ls='ls --color=auto'
     alias l="ls -AFBl --group-directories-first --ignore='.*.swp'"
+    alias del='trash-put'
 fi
-alias v='vim'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias g='git'
+alias gg='git status'
 alias md='mkdir -p'
 alias sudo="sudo "
 alias s='eval "sudo $(fc -ln -1)"'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 alias tmux='TERM=screen-256color tmux'
-alias g='git'
-alias gg='git status'
 alias t='tmux'
+alias v='vim'
+
 alias h='history -n'
 # last one to force re-read of bash history
 
