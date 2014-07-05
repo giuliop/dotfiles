@@ -30,11 +30,10 @@ PATH=~/.cabal/bin:$PATH
 # add my script dir to PATH
 PATH=$PATH:$HOME/dev/scripts
 # add my golang bin dir
-PATH=$PATH:$HOME/dev/go/ext/bin:$HOME/dev/go/mygo/bin
+PATH=$PATH:$HOME/dev/go/bin
 
 export PATH
-export GOPATH=$HOME/dev/go/ext:$HOME/dev/go/mygo
-
+export GOPATH=$HOME/dev/go
 
 # Source bashr
 if [ -f ~/.bashrc ]; then
