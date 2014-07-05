@@ -8,6 +8,7 @@
     user = giuliop
 [alias]
     aa = add --all
+    amend = commit --all --amend
     ca = commit -a -m
     ck = checkout
     cm = commit -m
