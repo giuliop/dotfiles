@@ -3,6 +3,9 @@
     login as different user in same terminal
         su - username
 
+    start root shell
+        sudo -s
+
     match previous command
         type ctrl-r then type partial match
         type history then !n where n is the command no
@@ -33,6 +36,9 @@
 
     show mounted devices
         df
+
+    show available updates (ubuntu)
+        /usr/lib/update-notifier/apt-check --human-readable
 
 
 *** tmux ***
@@ -72,7 +78,7 @@
 
     go until char 'a' (stop before) / (stop on it)
         ta / fa    |     T and F for backward
-    
+
     move to next (previous) word like the one under cursor
     * / #
 
@@ -116,3 +122,5 @@
 
     build without optmization to enable gdb debugging
         go build -gcflags '-N'
+
+    1 << n == 1 * 2^n
