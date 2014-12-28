@@ -3,9 +3,6 @@
     login as different user in same terminal
         su - username
 
-    start root shell
-        sudo -s
-
     match previous command
         type ctrl-r then type partial match
         type history then !n where n is the command no
@@ -98,6 +95,8 @@
     yank in insert mode
         ctrl-r " (remapped to ctrl-y)
 
+    unfreeze if frozen by ctrl-S
+        ctrl-Q
 
 *** git ***
 
