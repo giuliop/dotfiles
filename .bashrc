@@ -54,11 +54,11 @@ fi
 
 # my aliases
 if [[ $os == 'Mac' ]]; then
-    alias l='ls -AFBGl'
+    alias l='ls -AFBGlh'
     alias del='trash'
 else
     alias ls='ls --color=auto'
-    alias l="ls -AFBl --group-directories-first --ignore='.*.swp'"
+    alias l="ls -AFBlh --group-directories-first --ignore='.*.swp'"
     alias del='trash-put'
     alias upd?='/usr/lib/update-notifier/apt-check --human-readable'
 fi
