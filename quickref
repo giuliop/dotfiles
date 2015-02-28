@@ -37,6 +37,10 @@
     show available updates (ubuntu)
         /usr/lib/update-notifier/apt-check --human-readable
 
+    find and replace recursively
+        (mac) find . -type f -name '*.go' -exec sed -i '' 's/emptyText/empty/g' {} +
+        (ubuntu) find . -name '*.go' -type f -exec sed -i -e 's/emptyText/empty/g' -- {} +
+
 
 *** tmux ***
 
