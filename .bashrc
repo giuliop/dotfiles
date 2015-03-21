@@ -62,11 +62,12 @@ else
     alias del='trash-put'
     alias upd?='/usr/lib/update-notifier/apt-check --human-readable'
 fi
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias grep='grep --color=auto'
+alias egrep='egrep --color=always'
+alias fgrep='fgrep --color=always'
+alias grep='grep --color=always'
 alias g='git'
 alias gg='git status'
+alias less='less -R'
 alias md='mkdir -p'
 alias sudo="sudo "
 alias s='eval "sudo $(fc -ln -1)"'
