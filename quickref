@@ -120,6 +120,9 @@
         git remote add origin ssh://git@bitbucket.org/gws/xxx.git
         git push --set-upstream origin master
 
+    undo last commit
+        git reset --soft HEAD~1
+
 
 *** golang ***
 
