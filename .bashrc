@@ -62,6 +62,8 @@ else
     alias del='trash-put'
     alias upd?='/usr/lib/update-notifier/apt-check --human-readable'
 fi
+
+alias e='emacs'
 alias egrep='egrep --color=always'
 alias fgrep='fgrep --color=always'
 alias grep='grep --color=always'
