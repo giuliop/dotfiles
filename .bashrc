@@ -86,10 +86,10 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
 fi
 complete -o default -o nospace -F _git g
 
-# vim bindings, yeah!
-set -o vi
-# but need this to keep ESC . work normally and give you the last argument in bash
-bind -m vi-command ".":insert-last-argument
+ #vim bindings, yeah!
+#set -o vi
+ #but need this to keep ESC . work normally and give you the last argument in bash
+#bind -m vi-command ".":insert-last-argument
 
 # longer history
 HISTFILESIZE=10001
