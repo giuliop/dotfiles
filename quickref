@@ -130,3 +130,10 @@
         go build -gcflags '-N'
 
     1 << n == 1 * 2^n
+
+
+*** emacs ***
+
+    if error installing packages
+        M-x package-refresh-contents
+
