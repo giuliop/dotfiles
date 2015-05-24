@@ -137,3 +137,6 @@
     if error installing packages
         M-x package-refresh-contents
 
+    select entire buffer
+        C-x h
+
