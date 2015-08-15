@@ -25,8 +25,8 @@
     bash history statistics
         cut -f1 -d" " .bash_history | sort | uniq -c | sort -nr | head -n 30
 
-    ssh tunnel for firefox
-        ssh -C2qTnN -D 8080 gws@178.79.141.51
+    ssh tunnel for firefox on linode (ssh on port 443)
+        ssh -C2qTnN -D 8080 gws@178.79.141.51 -p 443
 
     ls in reverse order
         ls -tr
