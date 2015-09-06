@@ -4,5 +4,6 @@
   :dependencies [[org.clojure/tools.nrepl "0.2.10"]]
   :repl-options
     {:init
-     (do (load-file (str (System/getenv "HOME") "/dev/clojure/lib/gws/src/repl.clj"))
+     (do (load-file (str (System/getenv "HOME")
+                         "/dev/clojure/lib/gws/src/gws/repl.clj"))
          (require '[gws.repl :as u]))}}}
