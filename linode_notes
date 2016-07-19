@@ -1,4 +1,7 @@
 Only a few port are open by setting up a firewall as described in http://library.linode.com/securing-your-server
+Check them with command:
+
+$ sudo iptables -vL
 
 Port 80 is forwarded to port 8080 to use webservers without sudo (as per http://serverfault.com/questions/112795/how-can-i-run-a-server-on-linux-on-port-80-as-a-normal-user)
 
