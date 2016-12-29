@@ -4,6 +4,7 @@
 # Temp files #
 ##############
 *.un~
+.*~
 *.swp
 *.backup
 *.bak
