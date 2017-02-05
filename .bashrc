@@ -111,6 +111,9 @@ stty ixoff -ixon
 stty stop undef
 stty start undef
 
+# function to get source file of bash functions
+whichfunc () ( shopt -s extdebug; declare -F "$1"; )
+
 # ssh-agent up and running on Linux
 if [[ $os == 'Linux' ]]; then
     SSH_ENV="$HOME/.ssh/environment"
