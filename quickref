@@ -86,10 +86,6 @@
     delete until you find 'word'
         d/word (forward) |  d?word (backward)
 
-    use YankRing
-        after pasting, C-n and C-p to move through items in the ring
-        :YRShow to open ring buffer
-
     delete trailing whitespaces (all lines)
         :%s/\s\+$//
 
@@ -101,6 +97,10 @@
 
     unfreeze if frozen by ctrl-S
         ctrl-Q
+
+    close split
+        ctrl-W q (closes current split)
+        ctrl-W o (closes all split except current)
 
 *** git ***
 
