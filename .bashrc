@@ -76,6 +76,8 @@ alias s='eval "sudo $(fc -ln -1)"'
 alias tmux='TERM=screen-256color tmux'
 alias t='tmux'
 alias v='nvim'
+alias vim='nvim'
+alias realvim='vim'
 
 alias h='history -n'
 # last one to force re-read of bash history
