@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function git_prompt() {
-    # '2> /dev/null' color_untrackedirect sterr to null to avoid displaying error messages
+    # '2> /dev/null' direct sterr to null to avoid displaying error messages
     # when we are not in a git directory. In this case the '|| return' exits
     # immediately as we get nothing from git status
     git_status=$(git status 2> /dev/null) || return
@@ -32,7 +32,7 @@ function git_prompt() {
     }
 
     working_dir_clean() {
-        [[ "$git_status" =~  "working directory clean" ]]
+        [[ "$git_status" =~  "clean" ]]
     }
 
     local_changes() {
