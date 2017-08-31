@@ -78,6 +78,7 @@ alias t='tmux'
 alias v='nvim'
 alias vim='nvim'
 alias realvim='vim'
+alias octave='octave-cli'
 
 alias h='history -n'
 # last one to force re-read of bash history
