@@ -2,7 +2,7 @@
     name = giulio
     email = giuliop@gmail.com
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = ~/dev/dotfiles/.gitignore_global
 [github]
     user = giuliop
