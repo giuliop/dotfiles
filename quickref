@@ -54,6 +54,7 @@
         :join-pane -t <target window number>
         :join-pane -s <source window number>
 
+    swap panes -> { or }
     show pane number -> q
     rotate pane layout -> space
 
