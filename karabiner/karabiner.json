@@ -40,7 +40,7 @@
                         ]
                     },
                     {
-                        "description": "Post escape if caps is pressed alone, left_ctrl otherwise",
+                        "description": "Post Home if caps is pressed alone, left_ctrl otherwise",
                         "manipulators": [
                             {
                                 "from": {
@@ -58,7 +58,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "escape"
+                                        "key_code": "home"
                                     }
                                 ],
                                 "type": "basic"
@@ -80,27 +80,6 @@
                                 "to": [
                                     {
                                         "key_code": "caps_lock"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change ctrl+' to Home",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "quote",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "home"
                                     }
                                 ],
                                 "type": "basic"
@@ -208,6 +187,9 @@
                     }
                 }
             ],
+            "name": "",
+            "selected": false,
+            "simple_modifications": [],
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
                 "keyboard_type": "ansi"
