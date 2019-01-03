@@ -151,3 +151,9 @@
         C-x h
 			/*if ((n = rio_read(&rio, buf, MAXLINE)) != 0) {*/
 
+
+*** valgrind ***
+
+    compile with -g flag (keep default -O0)
+
+    run with valgrind --leak-check=yes myprog arg1 arg2
