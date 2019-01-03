@@ -62,6 +62,8 @@
         ctrl-b [ (then vim movement keys ; q to exit)
 
 *** vim ***
+    jump to MAN page
+        shift-k
 
     any word completion
         ctrl-N , ctrl-P
@@ -103,6 +105,10 @@
         ctrl-W q (closes current split)
         ctrl-W o (closes all split except current)
 
+    move to next { or } in first column (useful for c files)
+        [[
+        ]]
+
 *** git ***
 
     see changes before committing
@@ -124,6 +130,9 @@
     undo last commit
         git reset --soft HEAD~1
 
+    unstage file
+        git reset HEAD <file>
+
 
 *** golang ***
 
@@ -140,4 +149,5 @@
 
     select entire buffer
         C-x h
+			/*if ((n = rio_read(&rio, buf, MAXLINE)) != 0) {*/
 
