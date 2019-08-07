@@ -2,6 +2,7 @@ Only a few port are open by setting up a firewall as described in http://library
 Check them with command:
 
 $ sudo iptables -vL
+$ sudo iptables -t nat -vnL
 
 >>> Section below not true anymore, port 80 is not forwarded now <<<
 Port 80 is forwarded to port 8080 to use webservers without sudo (as per http://serverfault.com/questions/112795/how-can-i-run-a-server-on-linux-on-port-80-as-a-normal-user)
@@ -18,7 +19,9 @@ $ sudo iptables -t nat -D PREROUTING <line number>  (where line number comes fro
 $ sudo iptables -t nat -D OUTPUT <line number>      (where line number comes from above)
 >>> end of section <<<
 
-iptables rules above are made reloaded on reboot as per http://stackoverflow.com/questions/9330694/how-to-permanently-update-iptables (with iptables-persistent package)
+iptables rules are saved and reloaded on reboot with iptables-persistent package
+to change them:
+$ iptables-save > /etc/iptables/rules.v4
 
 sslh is used to accept SSH traffic over port 443 (https) and redirect https traffic to port 8443 to listen to it without sudo by adding these lines to /etc/rc.local
     # accept ssh connections on port 443 and redirect https traffic to port 8443
