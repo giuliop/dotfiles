@@ -3,6 +3,7 @@ Check them with command:
 
 $ sudo iptables -vL
 
+>>> Section below not true anymore, port 80 is not forwarded now <<<
 Port 80 is forwarded to port 8080 to use webservers without sudo (as per http://serverfault.com/questions/112795/how-can-i-run-a-server-on-linux-on-port-80-as-a-normal-user)
 
 Forwarded done by command:
@@ -15,6 +16,7 @@ To delete forwarding:
 $ sudo iptables -t nat --line-numbers -n -L
 $ sudo iptables -t nat -D PREROUTING <line number>  (where line number comes from above)
 $ sudo iptables -t nat -D OUTPUT <line number>      (where line number comes from above)
+>>> end of section <<<
 
 iptables rules above are made reloaded on reboot as per http://stackoverflow.com/questions/9330694/how-to-permanently-update-iptables (with iptables-persistent package)
 
