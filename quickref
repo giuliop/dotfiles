@@ -41,6 +41,9 @@
         (mac) find . -type f -name '*.go' -exec sed -i '' 's/emptyText/empty/g' {} +
         (ubuntu) find . -name '*.go' -type f -exec sed -i -e 's/emptyText/empty/g' -- {} +
 
+    create symlink
+    ln -s /path/to/file /path/to/symlink
+
 
 *** tmux ***
 
