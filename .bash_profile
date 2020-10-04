@@ -29,8 +29,10 @@ PATH=~/.cabal/bin:$PATH
 
 # add my script dir to PATH
 PATH=$PATH:$HOME/dev/scripts
-# add my golang bin dir
+# add my golang bin dir to PATH
 PATH=$PATH:$HOME/dev/go/bin
+# add python binaries to PATH
+PATH=$PATH:$HOME/.local/bin
 
 export PATH
 export GOPATH=$HOME/dev/go
