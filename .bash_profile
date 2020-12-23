@@ -42,3 +42,5 @@ else
     echo 'No bashrc found'
 fi
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
