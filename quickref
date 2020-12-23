@@ -62,7 +62,10 @@
     rotate pane layout -> space
 
     enter copy mode
-        ctrl-b [ (then vim movement keys ; q to exit)
+        [ (then vim movement keys ; q to exit)
+
+    Mark / unmark pane (fat borders)
+        m
 
 *** vim ***
     jump to MAN page
