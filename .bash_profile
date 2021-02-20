@@ -36,6 +36,7 @@ PATH=$PATH:$HOME/.local/bin
 
 export PATH
 export GOPATH=$HOME/dev/go
+export ALGORAND_DATA=/var/lib/algorand
 
 # Source bashr
 if [ -f ~/.bashrc ]; then
