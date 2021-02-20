@@ -163,3 +163,8 @@
     compile with -g flag (keep default -O0)
 
     run with valgrind --leak-check=yes myprog arg1 arg2
+
+*** Windows ***
+
+    restart WSL (Powershell admin command)
+        Get-Service LxssManager | Restart-Service
