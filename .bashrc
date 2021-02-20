@@ -79,6 +79,7 @@ alias v='nvim'
 alias vim='nvim'
 alias realvim='vim'
 alias octave='octave-cli'
+alias goals="sudo -u algorand -E goal"
 
 alias h='history -n'
 # last one to force re-read of bash history
