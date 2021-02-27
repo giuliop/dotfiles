@@ -12,9 +12,6 @@ os=$(uname)
 if [[ $os == 'Darwin' ]]; then
     os='Mac'
 fi
-if [[ $(uname -a) == *"gallium"* ]]; then
-    os='gallium'
-fi
 
 # prepare prompt
 niceprompt='[\u@\h] \[\e[0;36m\]\W \$ \[\e[0m\]'
@@ -148,7 +145,6 @@ if [[ $os == 'Linux' ]]; then
 fi
 
 # souce Gallium Os stuff if on Gallium
-if [[ $os == 'gallium' ]]; then
+if [[ $(uname -a) == *"gallium"* ]]; then
     . ~/dev/dotfiles/gallium_stuff
 fi
-

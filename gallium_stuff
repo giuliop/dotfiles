@@ -6,4 +6,4 @@ xinput --set-prop 14 'libinput Accel Speed' 0.1
 
 # as per https://github.com/alols/xcape
 # make control left as Home (after making caps lock as control left)
-xcape -e 'Control_L=Home'
+#xcape -e 'Control_L=Home'
