@@ -44,6 +44,9 @@
     create symlink
     ln -s /path/to/file /path/to/symlink
 
+    see usb drives
+    lsblk
+
 
 *** tmux ***
 
