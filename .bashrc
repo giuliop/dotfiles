@@ -144,6 +144,10 @@ if [[ $os == 'Linux' ]]; then
     fi
 fi
 
+# souce goal completion
+. ~/dev/dotfiles/goal_completion.sh
+
+
 # souce Gallium Os stuff if on Gallium
 if [[ $(uname -a) == *"gallium"* ]]; then
     . ~/dev/dotfiles/gallium_stuff
