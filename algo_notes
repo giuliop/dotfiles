@@ -1,0 +1,5 @@
+to compile for debugging to file dump.dr add to command the flags:
+    --dryrun-dump -o dump.dr
+
+to debug then run
+    goal clerk dryrun-remote -D dump.dr --verbose
