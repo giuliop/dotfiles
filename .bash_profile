@@ -35,9 +35,11 @@ PATH=$PATH:$HOME/dev/go/bin
 PATH=$PATH:$HOME/.local/bin
 
 export PATH
+
 export GOPATH=$HOME/dev/go
 #export ALGORAND_DATA=/var/lib/algorand
 export ALGORAND_DATA=/var/lib/algorand_testnet/
+export NODE_PATH=/usr/local/lib/node_modules
 
 # Source bashr
 if [ -f ~/.bashrc ]; then
