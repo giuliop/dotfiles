@@ -52,6 +52,8 @@
         du -h --max-depth=1 /path (see size for each subdir)
         df -h (see total disk space)
 
+    see all active services (systemd)
+        systemctl --type=service --state=running
 
 *** tmux ***
 
