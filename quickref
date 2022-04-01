@@ -55,6 +55,9 @@
     see all active services (systemd)
         systemctl --type=service --state=running
 
+    see open ports
+        sudo ss -tulpn | grep LISTEN
+
 *** tmux ***
 
     rename window
