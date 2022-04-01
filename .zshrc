@@ -41,13 +41,12 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias g="git"                                                                                                                                                                      
+
+alias g="git"
 alias gg="git status"
 alias sudo="sudo "  # make aliases work with sudo
 alias s='eval "sudo $(fc -ln -1)"'
@@ -56,3 +55,9 @@ alias t="tmux"
 alias v="nvim" 
 alias vim="nvim"
 alias realvim="vim"
+
+# Other personal customizations
+
+# use ctrl-p and ctrl-o to search history and not Return
+bindkey "^p" history-beginning-search-backward
+bindkey "^o" history-beginning-search-forward
