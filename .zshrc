@@ -61,3 +61,6 @@ alias realvim="vim"
 # use ctrl-p and ctrl-o to search history and not Return
 bindkey "^p" history-beginning-search-backward
 bindkey "^o" history-beginning-search-forward
+
+# PATH adds
+export PATH=$PATH:$HOME/dev/scripts     # my personal scripts
