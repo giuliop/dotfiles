@@ -15,14 +15,9 @@ zstyle ':omz:update' frequency 13
 ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
+# Disable marking untracked files under VCS as dirty. Much faster for large repositories
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load?
@@ -62,5 +57,9 @@ alias realvim="vim"
 bindkey "^p" history-beginning-search-backward
 bindkey "^o" history-beginning-search-forward
 
-# PATH adds
+# PATH adds and other exports
 export PATH=$PATH:$HOME/dev/scripts     # my personal scripts
+
+export ALGORAND_DATA=$HOME/dev/algorand/node/data
+export PATH=$PATH:$HOME/dev/algorand/node
+
