@@ -23,6 +23,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load?
 # plugins=(git)
 
+fpath=(~/dev/dotfiles/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
