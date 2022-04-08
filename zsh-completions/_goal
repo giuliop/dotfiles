@@ -1,0 +1,75 @@
+#compdef goal
+
+_arguments \
+  '1: :->level1' \
+  '2: :->level2' \
+  '3: :->level3' \
+  '4: :_files'
+case $state in
+  level1)
+    case $words[1] in
+      goal)
+        _arguments '1: :(account app asset clerk completion help kmd ledger license logging network node protocols report version wallet)'
+      ;;
+      *)
+        _arguments '*: :_files'
+      ;;
+    esac
+  ;;
+  level2)
+    case $words[2] in
+      kmd)
+        _arguments '2: :(start stop)'
+      ;;
+      logging)
+        _arguments '2: :(disable enable send)'
+      ;;
+      node)
+        _arguments '2: :(catchup clone create generatetoken lastround pendingtxns restart start status stop wait)'
+      ;;
+      wallet)
+        _arguments '2: :(list new)'
+      ;;
+      app)
+        _arguments '2: :(call clear closeout create delete info interact method optin read update)'
+      ;;
+      asset)
+        _arguments '2: :(config create destroy freeze info send)'
+      ;;
+      clerk)
+        _arguments '2: :(compile dryrun dryrun-remote group inspect multisig rawsend send sign split tealsign)'
+      ;;
+      completion)
+        _arguments '2: :(bash zsh)'
+      ;;
+      ledger)
+        _arguments '2: :(block supply)'
+      ;;
+      network)
+        _arguments '2: :(create delete restart start status stop)'
+      ;;
+      account)
+        _arguments '2: :(addpartkey balance changeonlinestatus delete dump export import importrootkey info installpartkey list listpartkeys marknonparticipating multisig new partkeyinfo rename renewallpartkeys renewpartkey rewards)'
+      ;;
+      *)
+        _arguments '*: :_files'
+      ;;
+    esac
+  ;;
+  level3)
+    case $words[3] in
+      multisig)
+        _arguments '3: :(delete info new merge sign signprogram)'
+      ;;
+      interact)
+        _arguments '3: :(execute query)'
+      ;;
+      *)
+        _arguments '*: :_files'
+      ;;
+    esac
+  ;;
+  *)
+    _arguments '*: :_files'
+  ;;
+esac
