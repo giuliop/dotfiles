@@ -1,3 +1,11 @@
+** zsh **
+
+    park a command to type another
+        ctrl+q
+
+    edit a command with the editor
+        ctrl-xe
+
 ** bash ***
 
     login as different user in same terminal
