@@ -61,6 +61,6 @@ bindkey "^o" history-beginning-search-forward
 # PATH adds and other exports
 export PATH=$PATH:$HOME/dev/scripts     # my personal scripts
 
-export ALGORAND_DATA=$HOME/dev/algorand/node/data
+export ALGORAND_DATA=$HOME/dev/algorand/privateBetaNet/Node
 export PATH=$PATH:$HOME/dev/algorand/node
 
