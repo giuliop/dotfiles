@@ -31,3 +31,4 @@ sslh is used to accept SSH traffic over port 443 (https) and redirect https traf
 the following lines are added to crontab via 'crontab -e'
     @monthly trash-empty 90
 
+opened port 2022 to run et server (Eternal Terminal)
