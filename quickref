@@ -66,6 +66,9 @@
     see open ports
         sudo ss -tulpn | grep LISTEN
 
+    process monitor
+        htop
+
 *** tmux ***
 
     rename window
