@@ -147,6 +147,11 @@
     see changes before committing
        git diff --cached
 
+    see all changes to a file
+         git log -p <filename>
+    see changes to a file from last commit
+         git log -1 -p <filename>
+
     update last commit with changes
         git commit --amend
 
