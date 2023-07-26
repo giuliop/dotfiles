@@ -51,6 +51,7 @@ alias t="tmux"
 alias v="nvim" 
 alias vim="nvim"
 alias realvim="vim"
+alias python="python3"
 
 # Other personal customizations
 
@@ -62,6 +63,8 @@ bindkey "^o" history-beginning-search-forward
 export PATH=$PATH:$HOME/dev/scripts     # my personal scripts
 export PATH=$PATH:/Users/giulio/Library/Python/3.9/bin     # for vscode python plugin
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # Add Visual Studio Code (code)
-export ALGORAND_DATA=$HOME/dev/algorand/privateBetaNet/Node
-export PATH=$PATH:$HOME/dev/algorand/node
 
+
+# Created by `pipx` on 2023-04-29 09:06:46
+export PATH="$PATH:/Users/giulio/.local/bin"
+. ~/.config/algokit/.algokit-completions.zsh
