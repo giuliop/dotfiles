@@ -205,6 +205,7 @@
         Get-Service LxssManager | Restart-Service
 
 *** VScode ***
+
     To disable the Apple press and hold for VSCode only, run this command in a terminal:
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
@@ -212,3 +213,13 @@
 
     To re-enable, run this command in a terminal:
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool true
+
+*** MacOs ***
+
+    Copy a path in Finder
+	CTRL-click on folder name in path at bottom
+
+    Paste a path in Finder
+	Command + Shift + G
+
+	
