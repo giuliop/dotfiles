@@ -173,10 +173,12 @@ docstring-min-length=-1
 # Naming style matching correct function names.
 function-naming-style=snake_case
 
+
 # Regular expression matching correct function names. Overrides function-
 # naming-style. If left empty, function names will be checked with the set
 # naming style.
-#function-rgx=
+# Accept any one letter or two letters function names
+function-rgx=[a-z_][a-z0-9_]?
 
 # Good variable names which should always be accepted, separated by a comma.
 good-names=i,
@@ -184,6 +186,7 @@ good-names=i,
            k,
            ex,
            Run,
+           up,
            _
 
 # Good variable names regexes, separated by a comma. If names match any regex,
@@ -422,7 +425,8 @@ disable=raw-checker-failed,
         useless-suppression,
         deprecated-pragma,
         use-symbolic-message-instead,
-        multiple-imports
+        multiple-imports,
+        global-statement
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
