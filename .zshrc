@@ -60,9 +60,11 @@ bindkey "^p" history-beginning-search-backward
 bindkey "^o" history-beginning-search-forward
 
 # PATH adds and other exports
-export PATH=$PATH:$HOME/dev/scripts     # my personal scripts
-export PATH=$PATH:/Users/giulio/Library/Python/3.9/bin     # for vscode python plugin
+export PATH=$PATH:$HOME/dev/scripts                     # my personal scripts
+export PATH=$PATH:/Users/giulio/Library/Python/3.9/bin  # for vscode python plugin
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # Add Visual Studio Code (code)
+export ALGORAND_DATA="$HOME/dev/algorand/node/data"     # for algorand node
+export PATH="$HOME/dev/algorand/node:$PATH"             # for algorand node
 
 
 # Created by `pipx` on 2023-04-29 09:06:46
