@@ -1,6 +1,7 @@
 [user]
     name = giulio
     email = giuliop@gmail.com
+	signingkey = 81E0FB63130466B782D4859D6C036245DBDB025D
 [core]
     editor = nvim
     excludesfile = ~/dev/dotfiles/.gitignore_global
@@ -29,3 +30,5 @@
 	directory = /etc/apache2
 [init]
 	defaultBranch = main
+[tag]
+	gpgSign = true
