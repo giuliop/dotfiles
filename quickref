@@ -58,6 +58,7 @@
     see directory size
         du -hs /path (see total directorysize)
         du -h --max-depth=1 /path (see size for each subdir)
+        du -h -d 1 - same for mac
         df -h (see total disk space)
 
     see all active services (systemd)
@@ -91,7 +92,7 @@
     Mark / unmark pane (fat borders)
         m
 
-*** vim ***
+*** neovim ***
     surrond visual selction with tag
         St the_tag_name (e.g., Stdiv to wrap inside <div>)
 
@@ -141,6 +142,24 @@
     move to next { or } in first column (useful for c files)
         [[
         ]]
+
+    close all buffers except current one
+        :%bd|e#
+
+    force close all buffers except current one (will lose changes to current buffer)
+        :%bd!|e#
+
+    display filename with full path
+        1 ctrl-g    (only ctrl-g for name only)
+
+    spelling !
+        :set spell – Turn on spell checking
+        :set nospell – Turn off spell checking
+        ]s – Jump to the next misspelled word
+        [s – Jump to the previous misspelled word
+        z= – Bring up the suggested replacements
+        zg – Good word: Add the word under the cursor to the dictionary
+        zw – Woops! Undo and remove the word from the dictionary
 
 *** git ***
 
@@ -217,9 +236,10 @@
 *** MacOs ***
 
     Copy a path in Finder
-	CTRL-click on folder name in path at bottom
+        CTRL-click on folder name in path at bottom
 
     Paste a path in Finder
-	Command + Shift + G
+        Command + Shift + G
 
-	
+    See ip on wifi network
+        ipconfig getifaddr en0
