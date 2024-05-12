@@ -80,6 +80,7 @@ alias vim='nvim'
 alias realvim='vim'
 alias octave='octave-cli'
 alias goals="sudo -u algorand -E goal"
+alias python='python3'
 
 alias h='history -n'
 # last one to force re-read of bash history
@@ -148,7 +149,6 @@ fi
 . ~/dev/dotfiles/goal_completion.sh
 
 
-# souce Gallium Os stuff if on Gallium
-if [[ $(uname -a) == *"gallium"* ]]; then
-    . ~/dev/dotfiles/gallium_stuff
-fi
+# souce asdf
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
