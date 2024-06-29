@@ -64,8 +64,11 @@
     see all active services (systemd)
         systemctl --type=service --state=running
 
-    see open ports
+    see open ports on linux
         sudo ss -tulpn | grep LISTEN
+
+    see ports listening for incoming connections on MacOs
+        sudo lsof -nP -iTCP -sTCP:LISTEN
 
     process monitor
         htop
@@ -161,6 +164,12 @@
         zg – Good word: Add the word under the cursor to the dictionary
         zw – Woops! Undo and remove the word from the dictionary
 
+    wrapping text
+        set wrap
+        set linebreak # (optional - breaks by word rather than character)
+        set columns=120
+
+
 *** git ***
 
     see changes before committing
@@ -243,3 +252,10 @@
 
     See ip on wifi network
         ipconfig getifaddr en0
+
+*** Algorand ***
+    to compile for debugging to file dump.dr add to command the flags:
+        --dryrun-dump -o dump.dr
+
+    to debug then run
+        goal clerk dryrun-remote -D dump.dr --verbose

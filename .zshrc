@@ -12,7 +12,7 @@ zstyle ':omz:update' frequency 13
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -21,7 +21,7 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load?
-# plugins=(git)
+ plugins=(vi-mode)
 
 fpath=(~/dev/dotfiles/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
@@ -48,7 +48,7 @@ alias sudo="sudo "  # make aliases work with sudo
 alias s='eval "sudo $(fc -ln -1)"'
 alias tmux="TERM=screen-256color tmux"
 alias t="tmux"
-alias v="nvim" 
+alias v="nvim"
 alias vim="nvim"
 alias realvim="vim"
 alias python="python3"
@@ -63,9 +63,11 @@ bindkey "^o" history-beginning-search-forward
 export PATH=$PATH:$HOME/dev/scripts                     # my personal scripts
 export PATH=$PATH:/Users/giulio/Library/Python/3.9/bin  # for vscode python plugin
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # Add Visual Studio Code (code)
-export ALGORAND_DATA="$HOME/dev/algorand/node/data"     # for algorand node
-export PATH="$HOME/dev/algorand/node:$PATH"             # for algorand node
-
+#export ALGORAND_DATA="$HOME/dev/algorand/node/data"     # for algorand node
+#export PATH="$HOME/dev/algorand/node:$PATH"             # for algorand node
+export PATH=$PATH:/Users/giulio/go/bin/                 # for go programs
+export GPG_TTY=$(tty)                                   # to sign git commits with GPG
+export PIPENV_MAX_DEPTH=4                               # to go up 4 dirs to find venv
 
 # Created by `pipx` on 2023-04-29 09:06:46
 export PATH="$PATH:/Users/giulio/.local/bin"
