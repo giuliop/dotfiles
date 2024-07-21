@@ -1,7 +1,7 @@
 [user]
     name = giulio
     email = giuliop@gmail.com
-	signingkey = 81E0FB63130466B782D4859D6C036245DBDB025D
+	signingkey = 3BCAD2CB70EDF387D682A2C0767CDA51BA8C0284
 [core]
     editor = nvim
     excludesfile = ~/dev/dotfiles/.gitignore_global
