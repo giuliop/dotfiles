@@ -218,7 +218,9 @@
 
     select entire buffer
         C-x h
-			/*if ((n = rio_read(&rio, buf, MAXLINE)) != 0) {*/
+
+    pipe command to clipboard
+        cmd | pbcopy    // e.g., cat result.txt | pbcopy
 
 
 *** valgrind ***
