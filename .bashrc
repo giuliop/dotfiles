@@ -89,7 +89,7 @@ alias h='history -n'
 if [ -f /usr/share/bash-completion/completions/git ]; then
     source /usr/share/bash-completion/completions/git
 fi
-complete -o default -o nospace -F _git g
+__git_complete g __git_main
 
  #vim bindings, yeah!
 #set -o vi
