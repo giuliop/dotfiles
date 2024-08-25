@@ -192,7 +192,7 @@ good-names=i,
 
 # Good variable names regexes, separated by a comma. If names match any regex,
 # they will always be accepted
-good-names-rgxs=[_a-zA-Z][_a-zA-Z0-9]?$
+good-names-rgxs=[_a-zA-Z][_a-zA-Z0-9]?$, [_a-zA-Z][_a-zA-Z0-9]*$
 
 # Include a hint for the correct naming format with invalid-name.
 include-naming-hint=no
@@ -204,7 +204,7 @@ inlinevar-naming-style=any
 # inlinevar-naming-style. If left empty, inline iteration names will be checked
 # with the set naming style.
 #inlinevar-rgx=
-
+c
 # Naming style matching correct method names.
 method-naming-style=snake_case
 
@@ -426,6 +426,7 @@ disable=raw-checker-failed,
         useless-suppression,
         deprecated-pragma,
         use-symbolic-message-instead,
+        too-few-public-methods,
         multiple-imports,
         global-statement
 

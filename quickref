@@ -58,13 +58,17 @@
     see directory size
         du -hs /path (see total directorysize)
         du -h --max-depth=1 /path (see size for each subdir)
+        du -h -d 1 - same for mac
         df -h (see total disk space)
 
     see all active services (systemd)
         systemctl --type=service --state=running
 
-    see open ports
+    see open ports on linux
         sudo ss -tulpn | grep LISTEN
+
+    see ports listening for incoming connections on MacOs
+        sudo lsof -nP -iTCP -sTCP:LISTEN
 
     process monitor
         htop
@@ -91,7 +95,7 @@
     Mark / unmark pane (fat borders)
         m
 
-*** vim ***
+*** neovim ***
     surrond visual selction with tag
         St the_tag_name (e.g., Stdiv to wrap inside <div>)
 
@@ -142,6 +146,30 @@
         [[
         ]]
 
+    close all buffers except current one
+        :%bd|e#
+
+    force close all buffers except current one (will lose changes to current buffer)
+        :%bd!|e#
+
+    display filename with full path
+        1 ctrl-g    (only ctrl-g for name only)
+
+    spelling !
+        :set spell – Turn on spell checking
+        :set nospell – Turn off spell checking
+        ]s – Jump to the next misspelled word
+        [s – Jump to the previous misspelled word
+        z= – Bring up the suggested replacements
+        zg – Good word: Add the word under the cursor to the dictionary
+        zw – Woops! Undo and remove the word from the dictionary
+
+    wrapping text
+        set wrap
+        set linebreak # (optional - breaks by word rather than character)
+        set columns=120
+
+
 *** git ***
 
     see changes before committing
@@ -190,7 +218,9 @@
 
     select entire buffer
         C-x h
-			/*if ((n = rio_read(&rio, buf, MAXLINE)) != 0) {*/
+
+    pipe command to clipboard
+        cmd | pbcopy    // e.g., cat result.txt | pbcopy
 
 
 *** valgrind ***
@@ -217,9 +247,17 @@
 *** MacOs ***
 
     Copy a path in Finder
-	CTRL-click on folder name in path at bottom
+        CTRL-click on folder name in path at bottom
 
     Paste a path in Finder
-	Command + Shift + G
+        Command + Shift + G
 
-	
+    See ip on wifi network
+        ipconfig getifaddr en0
+
+*** Algorand ***
+    to compile for debugging to file dump.dr add to command the flags:
+        --dryrun-dump -o dump.dr
+
+    to debug then run
+        goal clerk dryrun-remote -D dump.dr --verbose
