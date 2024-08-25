@@ -146,7 +146,7 @@ if [[ $os == 'Linux' ]]; then
 fi
 
 # souce goal completion
-. ~/dev/dotfiles/goal_completion.sh
+. ~/dev/dotfiles/bash-completions/goal
 
 
 # souce asdf
