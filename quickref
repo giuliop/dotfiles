@@ -24,8 +24,16 @@
     copy file from local computer to linode directory
         scp file gws@178.79.141.51:directory
 
+    copy dir from local computer to linode directory
+        scp -r dir gws@178.79.141.51:directory
+        rsync -av --exclude='subdir_to_exclude' /path/to/local/directory/ username@remote_host:/path/to/remote/directory/
+
     copy file from linode to local computer
-        scp gws@178.79.141.51:from_file to_file
+        scp gws@178.79.141.51:file_to_copy copied_file
+
+    copy dir from linode to local computer
+        scp -r gws@178.79.141.51:dir_to_copy copied_dir
+        rsync -av --exclude='subdir_to_exclude' username@remote_host:/path/to/remote/directory/ /path/to/local/directory/
 
     paste text into file (deleting old content) / append text to end of file
         echo 'text' > filename / echo 'text' >> filename
