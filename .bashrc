@@ -2,22 +2,14 @@
 # ~/.bashrc
 #
 
-#echo '*** reading bashrc ***'
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
-# Detect os
-os=$(uname)
-if [[ $os == 'Darwin' ]]; then
-    os='Mac'
-fi
 
 # prepare prompt
 niceprompt='[\u@\h] \[\e[0;36m\]\W \$ \[\e[0m\]'
 
 function _prompt() {
-    PS1="\n`git_prompt`"$niceprompt
+    PS1="\n$(git_prompt)$niceprompt"
 }
 
 # Add git info in status bar if available
@@ -28,40 +20,23 @@ else
     PS1="\n$niceprompt"
 fi
 
-# Set autocd on Linux
-if [[ $os == 'Linux' ]]; then
-    # no more need to type cd
-    shopt -s globstar autocd
-fi
+# Set autocd
+# no more need to type cd
+shopt -s globstar autocd
 
 # Source bash_completion
-if [[ $os == 'Mac' ]]; then
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-    fi
-else
-    if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-        . /etc/bash_completion
-    fi
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
 fi
 
 # make autojump work
-if [[ $os == 'Mac' ]]; then
-    [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-else
-    . /usr/share/autojump/autojump.sh
-fi
+. /usr/share/autojump/autojump.sh
 
 # my aliases
-if [[ $os == 'Mac' ]]; then
-    alias l='ls -AFBGlh'
-    alias del='trash'
-else
-    alias ls='ls --color=auto'
-    alias l="ls -AFBlh --group-directories-first --ignore='.*.swp'"
-    alias del='trash-put'
-    alias upd?='/usr/lib/update-notifier/apt-check --human-readable'
-fi
+alias ls='ls --color=auto'
+alias l="ls -AFBlh --group-directories-first --ignore='.*.swp'"
+alias del='trash-put'
+alias 'upd?'='/usr/lib/update-notifier/apt-check --human-readable'
 
 alias e='emacs'
 alias egrep='egrep --color=always'
@@ -120,30 +95,26 @@ stty start undef
 whichfunc () ( shopt -s extdebug; declare -F "$1"; )
 
 # ssh-agent up and running on Linux
-if [[ $os == 'Linux' ]]; then
-    SSH_ENV="$HOME/.ssh/environment"
+SSH_ENV="$HOME/.ssh/environment"
 
-    function start_agent {
-         echo "Initialising new SSH agent..."
-         /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-         echo succeeded
-         chmod 600 "${SSH_ENV}"
-         . "${SSH_ENV}" > /dev/null
-         /usr/bin/ssh-add;
-    }
+function start_agent {
+     echo "Initialising new SSH agent..."
+     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+     echo succeeded
+     chmod 600 "${SSH_ENV}"
+     . "${SSH_ENV}" > /dev/null
+     /usr/bin/ssh-add;
+}
 
-    # Source SSH settings, if applicable
+# Source SSH settings, if applicable
 
-    if [ -f "${SSH_ENV}" ]; then
-         . "${SSH_ENV}" > /dev/null
-         ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-             start_agent;
-         }
-    else
-         start_agent;
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     pgrep -u "$USER" -x ssh-agent > /dev/null || start_agent
+else
+     start_agent;
 
     fi
-fi
 
 # souce goal completion
 . ~/dev/dotfiles/bash-completions/goal
