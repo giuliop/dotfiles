@@ -97,27 +97,26 @@ stty start undef
 # function to get source file of bash functions
 whichfunc () ( shopt -s extdebug; declare -F "$1"; )
 
-# ssh-agent up and running on Linux
-SSH_ENV="$HOME/.ssh/environment"
+# make sure ssh-agent is up and running
+# File to store SSH agent variables
+SSH_ENV="$HOME/.ssh/agent-environment"
 
 function start_agent {
-     echo "Initialising new SSH agent..."
-     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-     echo succeeded
-     chmod 600 "${SSH_ENV}"
-     . "${SSH_ENV}" > /dev/null
-     /usr/bin/ssh-add;
+    echo "Starting new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
+    chmod 600 "$SSH_ENV"
+    source "$SSH_ENV"
+    ssh-add ~/.ssh/id_rsa
 }
 
-# Source SSH settings, if applicable
-
-if [ -f "${SSH_ENV}" ]; then
-     . "${SSH_ENV}" > /dev/null
-     pgrep -u "$USER" -x ssh-agent > /dev/null || start_agent
+# Try to load existing agent settings
+if [ -f "$SSH_ENV" ]; then
+    source "$SSH_ENV"
+    # Verify that the agent is still running
+    ps -p $SSH_AGENT_PID &>/dev/null || start_agent
 else
-     start_agent;
-
-    fi
+    start_agent
+fi
 
 # souce goal completion
 . ~/dev/dotfiles/bash-completions/goal
