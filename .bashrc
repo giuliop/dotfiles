@@ -48,6 +48,9 @@ alias less='less -R'
 alias md='mkdir -p'
 alias sudo="sudo "
 alias s='eval "sudo $(fc -ln -1)"'
+se() {
+    sudo -E bash -i -c "$*"
+}
 alias tmux='TERM=screen-256color tmux'
 alias t='tmux'
 alias v='nvim'
