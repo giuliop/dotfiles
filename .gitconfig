@@ -32,3 +32,5 @@
 	defaultBranch = main
 [tag]
 	gpgSign = true
+[pull]
+	rebase = true
