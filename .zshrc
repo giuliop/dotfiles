@@ -61,13 +61,16 @@ bindkey "^o" history-beginning-search-forward
 
 # PATH adds and other exports
 export PATH=$PATH:$HOME/dev/scripts                     # my personal scripts
-export PATH=$PATH:/Users/giulio/Library/Python/3.9/bin  # for vscode python plugin
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # Add Visual Studio Code (code)
-export ALGORAND_DATA=$HOME/dev/algorand/fnet/node
+export ALGORAND_DATA=$HOME/dev/algorand/testnet
 export GOAL_CMD=goal
-export PATH=$PATH:/Users/giulio/go/bin                 # for go programs
+export PATH=$PATH:/Users/giulio/go/bin                  # for go programs
 export GPG_TTY=$(tty)                                   # to sign git commits with GPG
 export PIPENV_MAX_DEPTH=4                               # to go up 4 dirs to find venv
+
+export PATH=$PATH:/Users/giulio/Library/Python/3.9/bin  # for vscode python plugin
+
+ # Add Visual Studio Code
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Created by `pipx` on 2023-04-29 09:06:46
 export PATH="$PATH:/Users/giulio/.local/bin"
