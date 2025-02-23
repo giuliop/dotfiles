@@ -102,25 +102,29 @@ whichfunc () ( shopt -s extdebug; declare -F "$1"; )
 SSH_ENV="$HOME/.ssh/agent-environment"
 
 function start_agent {
-    echo "Starting new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
-    chmod 600 "$SSH_ENV"
-    source "$SSH_ENV"
-    ssh-add ~/.ssh/id_rsa
+     echo "Initializing new SSH agent..."
+     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+     chmod 600 "${SSH_ENV}"
+     # shellcheck source=/dev/null
+     . "${SSH_ENV}" > /dev/null
+     /usr/bin/ssh-add
+     echo "SSH agent initialized successfully."
 }
 
-# Try to load existing agent settings
-if [ -f "$SSH_ENV" ]; then
-    source "$SSH_ENV"
-    # Verify that the agent is still running
-    ps -p $SSH_AGENT_PID &>/dev/null || start_agent
+# Source SSH settings if applicable
+if [ -f "${SSH_ENV}" ]; then
+     # shellcheck source=/dev/null
+     . "${SSH_ENV}" > /dev/null
+     # Check if SSH_AGENT_PID is defined and running
+     if [ -z "$SSH_AGENT_PID" ] || ! kill -0 "$SSH_AGENT_PID" 2>/dev/null; then
+         start_agent
+     fi
 else
-    start_agent
+     start_agent
 fi
 
 # souce goal completion
 . ~/dev/dotfiles/bash-completions/goal
-
 
 # souce asdf
 . "$HOME/.asdf/asdf.sh"
