@@ -41,8 +41,10 @@
     bash history statistics
         cut -f1 -d" " .bash_history | sort | uniq -c | sort -nr | head -n 30
 
-    ssh tunnel for firefox on linode (ssh on port 443)
-        ssh -C2qTnN -D 8080 gws@178.79.141.51 -p 443
+    ssh tunnel for localhost access on linode port 80 (http) or 443 (https) on port 8000
+    then on local browser can do http://localhost:8080 or https://localhost:8080
+        ssh -L 8000:localhost:80 gws@sofia
+        ssh -L 8000:localhost:443 gws@sofia
 
     ls in reverse order
         ls -tr
