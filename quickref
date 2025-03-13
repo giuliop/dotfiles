@@ -218,21 +218,6 @@
     build without optmization to enable gdb debugging
         go build -gcflags '-N'
 
-    1 << n == 1 * 2^n
-
-
-*** emacs ***
-
-    if error installing packages
-        M-x package-refresh-contents
-
-    select entire buffer
-        C-x h
-
-    pipe command to clipboard
-        cmd | pbcopy    // e.g., cat result.txt | pbcopy
-
-
 *** valgrind ***
 
     compile with -g flag (keep default -O0)
@@ -264,6 +249,10 @@
 
     See ip on wifi network
         ipconfig getifaddr en0
+
+    pipe command to clipboard
+        cmd | pbcopy    // e.g., cat result.txt | pbcopy
+
 
 *** Algorand ***
     to compile for debugging to file dump.dr add to command the flags:
