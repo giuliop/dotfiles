@@ -1,7 +1,7 @@
 #
 # ~/.bash_profile
 #
-
+export LANG=en_US.UTF-8
 
 # add my script dir to PATH
 PATH=$PATH:$HOME/dev/scripts
