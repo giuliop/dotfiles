@@ -14,8 +14,8 @@ export PATH=$PATH:/usr/local/go/bin
 
 export PATH
 
-export ALGORAND_DATA=/var/lib/algorand_testnet
-#export ALGORAND_DATA=/var/lib/algorand
+#export ALGORAND_DATA=/var/lib/algorand_testnet
+export ALGORAND_DATA=/var/lib/algorand
 export NODE_PATH=/usr/local/lib/node_modules
 
 # Source bashr
