@@ -48,6 +48,7 @@ alias less='less -R'
 alias md='mkdir -p'
 alias sudo="sudo "
 alias s='eval "sudo $(fc -ln -1)"'
+# use se vim ... to edit files as root with usual configuration
 se() {
     sudo -E bash -i -c "$*"
 }
@@ -59,6 +60,7 @@ alias realvim='vim'
 alias octave='octave-cli'
 alias goals="sudo -u algorand -E goal"
 alias python='python3'
+alias claude="~/.claude/local/claude"
 
 alias h='history -n'
 # last one to force re-read of bash history
