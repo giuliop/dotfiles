@@ -59,13 +59,15 @@ alias python="python3"
 bindkey "^p" history-beginning-search-backward
 bindkey "^o" history-beginning-search-forward
 
-# PATH adds and other exports
-export PATH=$PATH:$HOME/dev/scripts                     # my personal scripts
-export ALGORAND_DATA=$HOME/dev/algorand/testnet
-export GOAL_CMD=goal
-export PATH=$PATH:/Users/giulio/go/bin                  # for go programs
-export GPG_TTY=$(tty)                                   # to sign git commits with GPG
-export PIPENV_MAX_DEPTH=4                               # to go up 4 dirs to find venv
+export PATH=$PATH:$HOME/dev/scripts         # my personal scripts
+export PATH=$PATH:/Users/giulio/go/bin      # for go programs
+export GPG_TTY=$(tty)                       # to sign git commits with GPG
+export PIPENV_MAX_DEPTH=4                   # to go up 4 dirs to find venv
+
+# Algorand paths
+export PATH="$HOME/dev/algorand/node:$PATH"                     # algorand node binaries
+# export ALGORAND_DATA=$HOME/dev/algorand/devnet/network/node1    # devnet data dir
+# export GOAL_CMD=goal
 
 export PATH=$PATH:/Users/giulio/Library/Python/3.9/bin  # for vscode python plugin
 
