@@ -46,12 +46,21 @@ alias g='git'
 alias gg='git status'
 alias less='less -R'
 alias md='mkdir -p'
+
 alias sudo="sudo "
-alias s='eval "sudo $(fc -ln -1)"'
-# use se vim ... to edit files as root with usual configuration
-se() {
-    sudo -E bash -i -c "$*"
+
+# Re-run the last command as root, with your user config & aliases
+sl() {
+  local last
+  last=$(fc -ln -1)
+  sudo --preserve-env=HOME,XDG_CONFIG_HOME bash -i -c "$last"
 }
+
+# Run an arbitrary command as root, loading your aliases/config
+s() {
+    sudo --preserve-env=HOME,XDG_CONFIG_HOME bash -i -c "$*"
+}
+
 alias tmux='TERM=screen-256color tmux'
 alias t='tmux'
 alias v='nvim'
