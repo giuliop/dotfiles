@@ -23,7 +23,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load?
  plugins=(vi-mode)
 
-fpath=(~/dev/dotfiles/zsh-completions $fpath)
+fpath=(~/dev/dotfiles/Mac/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
