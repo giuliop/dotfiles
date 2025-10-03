@@ -27,7 +27,7 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/ssh-agent.socket"
 
 # Prompt
 niceprompt='[\u@\h] \[\e[0;36m\]\W \$ \[\e[0m\]'
-_git_prompt_file="$HOME/dev/dotfiles/bash-prompt-git-status"
+_git_prompt_file="$HOME/dev/dotfiles/Ubuntu/bash-prompt-git-status"
 if [[ -f "$_git_prompt_file" ]]; then
     . "$_git_prompt_file"
     _prompt() { PS1=$'\n'"$(git_prompt)$niceprompt"; }
@@ -116,7 +116,7 @@ stty start undef
 whichfunc () ( shopt -s extdebug; declare -F "$1"; )
 
 # goal completion (if present)
-[ -f "$HOME/dev/dotfiles/bash-completions/goal" ] && . "$HOME/dev/dotfiles/bash-completions/goal"
+[ -f "$HOME/dev/dotfiles/Ubuntu/bash-completions/goal" ] && . "$HOME/dev/dotfiles/Ubuntu/bash-completions/goal"
 
 # asdf (if present)
 [ -f "$HOME/.asdf/asdf.sh" ] && . "$HOME/.asdf/asdf.sh"
