@@ -23,6 +23,7 @@
 [push]
     ;git push will only push current branch when tracking enabled
     default = tracking
+	autoSetupRemote = true
 [http]
     ; next line to use socks5 proxy behind firewall
     ;proxy = socks5://127.0.0.1:1080
