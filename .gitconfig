@@ -21,12 +21,8 @@
     st = status
     tg = tag -l -n1
 [push]
-    ;git push will only push current branch when tracking enabled
-    default = tracking
+	default = current
 	autoSetupRemote = true
-[http]
-    ; next line to use socks5 proxy behind firewall
-    ;proxy = socks5://127.0.0.1:1080
 [safe]
 	directory = /etc/apache2
 [init]
