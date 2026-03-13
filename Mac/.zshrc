@@ -1,79 +1,84 @@
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Exit early for non-interactive shells
+[[ $- != *i* ]] && return
 
-# Set name of the theme to load
-ZSH_THEME="robbyrussell"
+typeset -U path fpath
 
-# Set automatic updates and frequency (days)
-zstyle ':omz:update' mode auto
-zstyle ':omz:update' frequency 13
+# ---- PATH helper ------------------------------------------------------------
+path_append_if_exists () {
+  [[ -d "$1" ]] && path+=("$1")
+}
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+path_prepend_if_exists () {
+  [[ -d "$1" ]] && path=("$1" $path)
+}
 
-# Uncomment the following line to enable command auto-correction.
-#ENABLE_CORRECTION="true"
+# ---- History ----------------------------------------------------------------
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
 
-# Disable marking untracked files under VCS as dirty. Much faster for large repositories
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# ---- Editor -----------------------------------------------------------------
+export EDITOR="nvim"
+export VISUAL="nvim"
 
-# Which plugins would you like to load?
- plugins=(vi-mode)
+# ---- Environment ------------------------------------------------------------
+export GPG_TTY=$(tty)
+export PIPENV_MAX_DEPTH=4
 
-fpath=(~/dev/dotfiles/Mac/zsh-completions $fpath)
-source $ZSH/oh-my-zsh.sh
+# ---- PATH additions ---------------------------------------------------------
+path_append_if_exists "$HOME/dev/scripts"
+path_append_if_exists "$HOME/go/bin"
+path_prepend_if_exists "$HOME/dev/algorand/node"
+path_append_if_exists "$HOME/Library/Python/3.9/bin"
+path_append_if_exists "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+path_append_if_exists "$HOME/.local/bin"
 
-# User configuration
+# ---- Completion -------------------------------------------------------------
+[[ -d "$HOME/dev/dotfiles/Mac/zsh-completions" ]] && \
+  fpath=("$HOME/dev/dotfiles/Mac/zsh-completions" $fpath)
 
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nvim'
- else
-   export EDITOR='nvim'
- fi
+autoload -Uz compinit
+compinit
 
+# ---- Tools ------------------------------------------------------------------
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+[[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
 
-# Set personal aliases, overriding those provided by oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
+# ---- Aliases ----------------------------------------------------------------
 alias g="git"
 alias gg="git status"
-alias sudo="sudo "  # make aliases work with sudo
-alias s='eval "sudo $(fc -ln -1)"'
-alias tmux="TERM=screen-256color tmux"
+
+alias ..="cd .."
+
+alias j="z"
+alias jj="zi"
+
 alias t="tmux"
+
 alias v="nvim"
 alias vim="nvim"
 alias realvim="vim"
+
 alias python="python3"
 
-# Other personal customizations
+alias l="eza -la --icons --git"
+alias ll="eza -la"
+alias lt="eza --tree --level=2"
+alias sudo="sudo "
 
-# use ctrl-p and ctrl-o to search history and not Return
+# ---- History navigation -----------------------------------------------------
 bindkey "^p" history-beginning-search-backward
 bindkey "^o" history-beginning-search-forward
 
-export PATH=$PATH:$HOME/dev/scripts         # my personal scripts
-export PATH=$PATH:/Users/giulio/go/bin      # for go programs
-export GPG_TTY=$(tty)                       # to sign git commits with GPG
-export PIPENV_MAX_DEPTH=4                   # to go up 4 dirs to find venv
-
-# Algorand paths
-export PATH="$HOME/dev/algorand/node:$PATH"                     # algorand node binaries
-# export ALGORAND_DATA=$HOME/dev/algorand/devnet/network/node1    # devnet data dir
-# export GOAL_CMD=goal
-
-export PATH=$PATH:/Users/giulio/Library/Python/3.9/bin  # for vscode python plugin
-
- # Add Visual Studio Code
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
-# Created by `pipx` on 2023-04-29 09:06:46
-export PATH="$PATH:/Users/giulio/.local/bin"
-. ~/.config/algokit/.algokit-completions.zsh
+# ---- Optional tool completions ---------------------------------------------
+[[ -f "$HOME/.config/algokit/.algokit-completions.zsh" ]] && \
+  . "$HOME/.config/algokit/.algokit-completions.zsh"
