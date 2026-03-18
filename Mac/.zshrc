@@ -58,6 +58,7 @@ alias g="git"
 alias gg="git status"
 
 alias ..="cd .."
+alias md="mkdir -p"
 
 alias j="z"
 alias jj="zi"
