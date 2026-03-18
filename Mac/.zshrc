@@ -50,6 +50,7 @@ compinit
 
 # ---- Tools ------------------------------------------------------------------
 eval "$(zoxide init zsh)"
+export STARSHIP_CONFIG="$HOME/dev/dotfiles/Mac/starship.toml"
 eval "$(starship init zsh)"
 [[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
 
