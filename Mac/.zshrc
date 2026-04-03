@@ -77,6 +77,18 @@ alias ll="eza -la"
 alias lt="eza --tree --level=2"
 alias sudo="sudo "
 
+# Re-run the last command as root, with your user config & aliases
+sl() {
+  local last
+  last=$(fc -ln -1)
+  sudo --preserve-env=HOME,XDG_CONFIG_HOME zsh -i -c "$last"
+}
+
+# Run an arbitrary command as root, loading your aliases/config
+s() {
+  sudo --preserve-env=HOME,XDG_CONFIG_HOME zsh -i -c "$*"
+}
+
 # ---- History navigation -----------------------------------------------------
 bindkey "^p" history-beginning-search-backward
 bindkey "^o" history-beginning-search-forward
