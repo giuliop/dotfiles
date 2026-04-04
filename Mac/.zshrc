@@ -46,7 +46,14 @@ path_append_if_exists "$HOME/.local/bin"
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 autoload -Uz compinit
-compinit
+if (( EUID == 0 )) && [[ "$HOME" != "/var/root" ]]; then
+  # `sl`/`s` preserve your user HOME under sudo, which makes user-owned
+  # completion paths look insecure to root. Ignore those paths in that case,
+  # and don't let root write a dump file into your user home.
+  compinit -i -D
+else
+  compinit
+fi
 
 # ---- Tools ------------------------------------------------------------------
 eval "$(zoxide init zsh)"
